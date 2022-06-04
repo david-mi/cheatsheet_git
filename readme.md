@@ -33,12 +33,7 @@
 ## INFOS COMPLÉMENTAIRES
 ---
 
-### Merge
-Quand on effectue un merge, il peut se passer trois choses : 
-| Type | Explications |
-| - | - | 
-| **merge fast forward** | La branche sur laquelle on effectue le merge n'a pas eu de nouvelles modifications depuis que l'on travaille sur la branche et donc le merge sera un simple **fast-forward**, ce qui veut dire que le pointeur de la branche sur laquelle on merge va rattraper la branche visée | 
-| **merge avec commit auto** | Si la branche sur laquelle on effectue le merge a effectué un commit depuis  |
+## Merging
 
  ![ffmerge](./screens/fast_foward_merge.png)
 
