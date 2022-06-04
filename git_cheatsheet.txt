@@ -7,4 +7,11 @@ git switch <branche>
 // Créer une branche et immédiatement basculer sur celle-ci
 git switch -c <branche>
 
+### LOG ###
 
+// faire un log jusqu'à HEAD
+git --log
+// faire un log jusqu'à HEAD et au dessus
+git log --all
+// argument à rajouter pour print des logs d'une ligne seulement
+--oneline
