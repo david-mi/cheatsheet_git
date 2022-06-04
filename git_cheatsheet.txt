@@ -7,4 +7,10 @@ git switch <branche>
 // Créer une branche et immédiatement basculer sur celle-ci
 git switch -c <branche>
 
+### CHECKOUT ###
+
+// Changer de branche
+git checkout <branche> 
+// Créer une branche et immédiatement basculer sur celle-ci
+git checkout -b <branche>
 
