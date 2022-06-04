@@ -1,3 +1,10 @@
 // -- CHEATSHEET SUR GIT -- //
 
+### SWITCH ###
+
+// Changer de branche
+git switch <branche> 
+// Créer une branche et immédiatement basculer sur celle-ci
+git switch -c <branche>
+
 
