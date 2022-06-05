@@ -30,6 +30,18 @@
 | **Stage et commit des fichiers** | `git commit -am "<message>"` | Cela ne remplace pas un `git add .` suivi d'un commit car le flag `-a` va stage seulement les fichiers déjà suivis alors que `git add .` va stage les changements sur les fichiers suivis mais aussi les nouveaux fichiers qui n'étaient pas encore suivi |
 | **Remplacer son précédent commit** | `git commit --amend` | Cette commande va remplacer l'ancien commit par un nouveau qui contiendra les changements qu'on a stage en plus de ceux précédemment commit. Le hash sera différent. Si on veut changer le nom du commit, on peut rajouter `-m <message>`. Au contraire, si on veut juste ajouter des changements en gardant l'ancien message, on peut ajouter `--no-edit`|
 
+## DIFF
+
+| Rôle | Commande | Remarque |
+| - | - | - |
+| **Voir les changements  des fichiers suivis mais pas encore stage** | `git diff` |
+| **Voir tous les changements des fichiers suivis depuis HEAD** | `git diff HEAD` |
+| **Voir les changements qui ont été staged** | `git diff --staged` ou `git diff --cached` |
+| **Voir les changements dans un ou plusieurs fichiers précis** | `git diff <fichier1> <fichier2> <etc...>` |
+| **Voir les changements entre 2 branches** | `git diff <branche1> <branche2>` ou `git diff <branche1>..<branche2>` | Va comparer les différences sur le dernier commit fait dans les 2 branches. possibilité de faire la comparaison sur un ou plusieurs fichiers précis en rajoutant les noms de fichiers à la suite|
+|**Voir les changements entre 2 commits**| `git diff <commit1> <commit2>` ou `git diff <commit1>..<commit2>`|
+
+
 ## INFOS COMPLÉMENTAIRES
 ---
 
