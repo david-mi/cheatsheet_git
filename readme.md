@@ -39,7 +39,7 @@
 | **Voir les changements qui ont été staged** | `git diff --staged` ou `git diff --cached` |
 | **Voir les changements dans un ou plusieurs fichiers précis** | `git diff <fichier1> <fichier2> <etc...>` |
 | **Voir les changements entre 2 branches** | `git diff <branche1> <branche2>` ou `git diff <branche1>..<branche2>` | Va comparer les différences sur le dernier commit fait dans les 2 branches. possibilité de faire la comparaison sur un ou plusieurs fichiers précis en rajoutant les noms de fichiers à la suite|
-|**Voir les changements entre 2 commits**| `git diff <commit1> <commit2>` ou `git diff <commit1>..<commit2>`| Il est aussi possible de ne citer qu'un seul commit et par défaut ça fera une comparaise de cet commit a HEAD, exemple `git diff HEAD~1` va comparer les changements entre le dernier commit et HEAD
+|**Voir les changements entre 2 commits**| `git diff <commit1> <commit2>` ou `git diff <commit1>..<commit2>`| Il est aussi possible de ne citer qu'un seul commit et par défaut ça fera une comparaison de ce commit a HEAD, exemple `git diff HEAD~1` va comparer les changements entre le dernier commit et HEAD
 
 
 ## INFOS COMPLÉMENTAIRES
@@ -48,6 +48,4 @@
 ## Merging
 
  ![ffmerge](./screens/fast_foward_merge.png)
-
-
 
