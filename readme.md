@@ -3,49 +3,49 @@
 
 ## SWITCH
 
-| Rôle | Commande |
+| Commande | Explications |
 | - | - |
-| **Changer de branche** | `git switch <branche>` |
-| **Créer une branche et basculer sur celle-ci** | `git switch -c <branche>`
+| `git switch <branche>` | **Changer de branche**|
+| `git switch -c <branche>`| **Créer une branche et basculer directement sur celle-ci** |
 
 ## CHECKOUT
 
-| Rôle | Commande |
+| Commande | Explications |
 | - | - |
-| **Changer de branche** | `git checkout <branche>` |
-| **Créer une branche et basculer sur celle-ci** | `git checkout -b <branche>`
+| `git checkout <branche>` | **Changer de branche**|
+| `git checkout -b <branche>`| **Créer une branche et basculer directement sur celle-ci** |
 
 ## LOG
 
-| Rôle | Commande |
+| Commande | Explications |
 | - | - |
-| **Afficher un log jusqu'à HEAD** | `git log` |
-| **Afficher un log jusqu'à HEAD et au dessus** | `git log --all` |
-| **Afficher des logs d'une ligne seulement** | `git log --oneline` |
+|`git log` | **Afficher un log des commits jusqu'à HEAD** | 
+|  `git log --all` | **Afficher un log de tous les commits** |
+| `git log --oneline` | **Formater l'affichage des logs sur une ligne** |
 
 ## COMMIT
 
-| Rôle | <div style="width:250px;">Commande</div> | Remarques |
-| - | - | - |
-| **Stage et commit des fichiers** | `git commit -am "<message>"` | Cela ne remplace pas un `git add .` suivi d'un commit car le flag `-a` va stage seulement les fichiers déjà suivis alors que `git add .` va stage les changements sur les fichiers suivis mais aussi les nouveaux fichiers qui n'étaient pas encore suivi |
-| **Remplacer son précédent commit** | `git commit --amend` | Cette commande va remplacer l'ancien commit par un nouveau qui contiendra les changements qu'on a stage en plus de ceux précédemment commit. Le hash sera différent. Si on veut changer le nom du commit, on peut rajouter `-m <message>`. Au contraire, si on veut juste ajouter des changements en gardant l'ancien message, on peut ajouter `--no-edit`|
+| Commande| Explications |
+| - | - |
+| `git commit -am "<message>"` |  **Stage et commit tous les fichiers modifiés.** Cela ne remplace pas un `git add .` suivi d'un commit car le flag `-a` va stage seulement les fichiers suivis alors que `git add .` va aussi prendre les nouveaux fichiers en compte |
+|  `git commit --amend` | **Remplace le précédent commit.** Le nouveau commit contiendra les changements qu'on a stage en plus de ceux du précédent commit. Le hash sera différent. Si on veut changer le nom du commit, on peut rajouter `-m <message>`. Au contraire, si on veut juste ajouter des changements en gardant l'ancien message, on peut ajouter `--no-edit`|
 
 ## DIFF
 
-| Rôle | Commande | Remarque |
-| - | - | - |
-| **Voir les changements  des fichiers suivis mais pas encore stage** | `git diff` |
-| **Voir tous les changements des fichiers suivis depuis HEAD** | `git diff HEAD` |
-| **Voir les changements qui ont été staged** | `git diff --staged` ou `git diff --cached` |
-| **Voir les changements dans un ou plusieurs fichiers précis** | `git diff <fichier1> <fichier2> <etc...>` |
-| **Voir les changements entre 2 branches** | `git diff <branche1> <branche2>` ou `git diff <branche1>..<branche2>` | Va comparer les différences sur le dernier commit fait dans les 2 branches. possibilité de faire la comparaison sur un ou plusieurs fichiers précis en rajoutant les noms de fichiers à la suite|
-|**Voir les changements entre 2 commits**| `git diff <commit1> <commit2>` ou `git diff <commit1>..<commit2>`| Il est aussi possible de ne citer qu'un seul commit et par défaut ça fera une comparaison de ce commit a HEAD, exemple `git diff HEAD~1` va comparer les changements entre le dernier commit et HEAD
+| Commande| Explications |
+| - | - |
+| `git diff` | **Voir les changements  des fichiers suivis mais pas encore stage**  |
+| `git diff HEAD` | **Voir tous les changements des fichiers suivis depuis HEAD** |
+| `git diff --staged` ou `git diff --cached` | **Voir les changements qui ont été staged** |
+| `git diff <fichier1> <fichier2> <etc...>` | **Voir les changements dans un ou plusieurs fichiers précis** |
+|  `git diff <branche1> <branche2>` ou `git diff <branche1>..<branche2>` | **Comparer les différences sur le dernier commit pointé dans les 2 branches.** possibilité de faire la comparaison sur un ou plusieurs fichiers précis en rajoutant les noms de fichiers à la suite|
+| `git diff <commit1> <commit2>` ou `git diff <commit1>..<commit2>`|**Voir les changements entre 2 commits.** Il est aussi possible de ne citer qu'un seul commit et par défaut ça fera une comparaison de ce commit a HEAD, exemple `git diff HEAD~1` va comparer les changements entre le dernier commit et HEAD
 
 # STASH
 
-| Rôle | Commande | Remarques |
-| - | - | - |
-| **retirer et stocker les derniers changements** | `git stash` | Si on veut également ajouter les fichiers non indexés au stash, on peut rajouter l'argument `-u` |
+| Commande| Explications |
+| - | - |
+| `git stash` | **Retirer et stocker les derniers changements.** Si on veut également ajouter les fichiers non indexés au stash, on peut rajouter l'argument `-u` |
 
 
 ## INFOS COMPLÉMENTAIRES
