@@ -53,6 +53,14 @@
 |`git stash drop <stash-id>`| **Va supprimer le stash avec l'id pointé**|
 |`git stash clear`| **Va supprimer tous les stashs**|
 
+# RESTORE
+
+| Commande | Explications |
+| - | - |
+| `git restore` | **Restorer le contenu d'un ou plusieurs fichier en fonction de HEAD** |
+| `git restore  --source <commit> <fichier1> <fichier2..>` | **Restaurer le contenu d'un ou plusieurs fichier en fonction de du commit spécifié (ne touche pas à l'historique et ne modifie pas les commits)** |
+| `git restore --staged <fichier1> <fichier2...>` | **Retirer un ou plusieurs fichier du stage** |
+
 
 ## INFOS COMPLÉMENTAIRES
 ---
