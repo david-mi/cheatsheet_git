@@ -7,6 +7,7 @@
 | - | - |
 | `git switch <branche>` | **Changer de branche**|
 | `git switch -c <branche>`| **Créer une branche et basculer directement sur celle-ci** |
+| `git switch -` | **Revenir sur la branche où on était précédemment** |
 
 ## CHECKOUT
 
