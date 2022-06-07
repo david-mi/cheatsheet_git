@@ -41,6 +41,12 @@
 | **Voir les changements entre 2 branches** | `git diff <branche1> <branche2>` ou `git diff <branche1>..<branche2>` | Va comparer les différences sur le dernier commit fait dans les 2 branches. possibilité de faire la comparaison sur un ou plusieurs fichiers précis en rajoutant les noms de fichiers à la suite|
 |**Voir les changements entre 2 commits**| `git diff <commit1> <commit2>` ou `git diff <commit1>..<commit2>`| Il est aussi possible de ne citer qu'un seul commit et par défaut ça fera une comparaison de ce commit a HEAD, exemple `git diff HEAD~1` va comparer les changements entre le dernier commit et HEAD
 
+# STASH
+
+| Rôle | Commande | Remarques |
+| - | - | - |
+| **retirer et stocker les derniers changements** | `git stash` | Si on veut également ajouter les fichiers non indexés au stash, on peut rajouter l'argument `-u` |
+
 
 ## INFOS COMPLÉMENTAIRES
 ---
