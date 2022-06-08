@@ -32,14 +32,33 @@
 
 ## DIFF
 
-| Rôle | Commande | Remarque |
-| - | - | - |
-| **Voir les changements  des fichiers suivis mais pas encore stage** | `git diff` |
-| **Voir tous les changements des fichiers suivis depuis HEAD** | `git diff HEAD` |
-| **Voir les changements qui ont été staged** | `git diff --staged` ou `git diff --cached` |
-| **Voir les changements dans un ou plusieurs fichiers précis** | `git diff <fichier1> <fichier2> <etc...>` |
-| **Voir les changements entre 2 branches** | `git diff <branche1> <branche2>` ou `git diff <branche1>..<branche2>` | Va comparer les différences sur le dernier commit fait dans les 2 branches. possibilité de faire la comparaison sur un ou plusieurs fichiers précis en rajoutant les noms de fichiers à la suite|
-|**Voir les changements entre 2 commits**| `git diff <commit1> <commit2>` ou `git diff <commit1>..<commit2>`| Il est aussi possible de ne citer qu'un seul commit et par défaut ça fera une comparaise de cet commit a HEAD, exemple `git diff HEAD~1` va comparer les changements entre le dernier commit et HEAD
+| Commande| Explications |
+| - | - |
+| `git diff` | **Voir les changements  des fichiers suivis mais pas encore stage** Possibilité d'ignorer les espaces en rajoutant l'argument `-w` |
+| `git diff HEAD` | **Voir tous les changements des fichiers suivis depuis HEAD** |
+| `git diff --staged` ou `git diff --cached` | **Voir les changements qui ont été staged** |
+| `git diff <fichier1> <fichier2> <etc...>` | **Voir les changements dans un ou plusieurs fichiers précis** |
+|  `git diff <branche1> <branche2>` ou `git diff <branche1>..<branche2>` | **Comparer les différences sur le dernier commit pointé dans les 2 branches.** Possibilité de faire la comparaison sur un ou plusieurs fichiers précis en rajoutant les noms de fichiers à la suite|
+| `git diff <commit1> <commit2>` ou `git diff <commit1>..<commit2>`|**Voir les changements entre 2 commits.** Il est aussi possible de ne citer qu'un seul commit et par défaut ça fera une comparaison de ce commit a HEAD, exemple `git diff HEAD~1` va comparer les changements entre le dernier commit et HEAD
+
+# STASH
+
+| Commande| Explications |
+| - | - |
+| `git stash` | **Retirer et stocker les derniers changements.** Si on veut également ajouter les fichiers non indexés au stash, on peut rajouter l'argument `-u` |
+| `git stash list` | **Voir la liste des stashs sauvegardés** |
+| `git stash pop` | **Va appliquer le dernier stash sauvegardé dans la branch où on se trouve et le supprimer de la mémoire** |
+| `git stash apply` | **Même chose que `--pop` sauf que le stash ne sera pas supprimé** |
+|`git stash drop <stash-id>`| **Va supprimer le stash avec l'id pointé**|
+|`git stash clear`| **Va supprimer tous les stashs**|
+
+# RESTORE
+
+| Commande | Explications |
+| - | - |
+| `git restore` | **Restorer le contenu d'un ou plusieurs fichier en fonction de HEAD** |
+| `git restore  --source <commit> <fichier1> <fichier2..>` | **Restaurer le contenu d'un ou plusieurs fichier en fonction de du commit spécifié (ne touche pas à l'historique et ne modifie pas les commits)** |
+| `git restore --staged <fichier1> <fichier2...>` | **Retirer un ou plusieurs fichier du stage** |
 
 
 ## INFOS COMPLÉMENTAIRES
