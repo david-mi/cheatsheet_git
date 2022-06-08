@@ -46,7 +46,7 @@
 
 | Commande| Explications |
 | - | - |
-| `git stash` | **Retirer et stocker les derniers changements.** Si on veut également ajouter les fichiers non indexés au stash, on peut rajouter l'argument `-u` |
+| `git stash` | **Retirer et stocker les derniers changements.** Si on veut également ajouter les fichiers non indexés au stash, on peut rajouter l'argument `-u`. Si on veut ajouter un message personnalisé pour ce qu'on sauvegarde dans le stash, on peut faire `git stash save "<message>"` (git stash par défaut effectue la même action que `git stash save` mais on peut pas lui passer de message). |
 | `git stash list` | **Voir la liste des stashs sauvegardés** |
 | `git stash pop` | **Va appliquer le dernier stash sauvegardé dans la branch où on se trouve et le supprimer de la mémoire** |
 | `git stash apply` | **Même chose que `--pop` sauf que le stash ne sera pas supprimé** |
