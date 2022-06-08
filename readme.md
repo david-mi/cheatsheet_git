@@ -35,7 +35,7 @@
 
 | Commande| Explications |
 | - | - |
-| `git diff` | **Voir les changements  des fichiers suivis mais pas encore stage**  |
+| `git diff` | **Voir les changements  des fichiers suivis mais pas encore stage.** Possibilité de rajouter l'argument `-w` pour ignorer les espaces. |
 | `git diff HEAD` | **Voir tous les changements des fichiers suivis depuis HEAD** |
 | `git diff --staged` ou `git diff --cached` | **Voir les changements qui ont été staged** |
 | `git diff <fichier1> <fichier2> <etc...>` | **Voir les changements dans un ou plusieurs fichiers précis** |
