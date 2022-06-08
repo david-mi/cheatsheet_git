@@ -69,3 +69,13 @@
 
  ![ffmerge](./screens/fast_foward_merge.png)
 
+## Revenir en arrière de plusieurs commits
+
+Si les commits en question n'ont pas été push sur un repo distant, où des personnes travaillent potentiellement dessus, la solution la plus simple serait un `git reset <commit-ciblé>`. Dans le cas inverse, il y aurait 2 autres options qui permettraient de garder l'historique intact : 
+
+- Faire un `git revert <dernier-commit-ciblé> <premier-commit-ciblé>`, ce qui ferait dans l'ordre : 
+  - Annuler les changements fait par le dernier commit ciblé (sans le supprimer), et faire un nouveau commit.
+  - refaire la même chose mais pour les commits ciblés suivants (du dernier au premier)
+  - Les inconvénients seraient qu'il faudrait rajouter un commit supplémentaire par commit ciblé, ce qui peut vite alourdir l'historique. On pourrait rajouter l'argument `--no-commit` pour seulement faire un commit nous-même après les actions.
+- Faire un `git restore <commit-ciblé> .`
+  - Cela a pour avantage de le pas créer de potentiels conflits et de faire seulement un commit.
