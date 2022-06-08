@@ -53,6 +53,12 @@
 |`git stash drop <stash-id>`| **Va supprimer le stash avec l'id pointé**|
 |`git stash clear`| **Va supprimer tous les stashs**|
 
+# RESET
+
+| Commande | Explications |
+| - | - |
+| `git reset <commit>` | **Va déplacer HEAD sur un ancien commit en conservant les modifications faites jusqu'au précédent HEAD dans le répertoire de travail.** Si on veut également conserver aucun des changements, on peut rajouter l'argument `--hard` |
+
 # RESTORE
 
 | Commande | Explications |
