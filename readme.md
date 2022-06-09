@@ -94,6 +94,14 @@
 | `git remote rename <label> <new-label>` | **Renommer l'ancien label par le nouveau** |
 | `git remote remove <label>` | **Supprimer le label et l'url associée** |
 
+
+# PUSH
+
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
+| - | - |
+| `git push origin --delete <branche>` | **Supprimer la branche sur un dépot distant.** |
+
+
 ## INFOS COMPLÉMENTAIRES
 ---
 
