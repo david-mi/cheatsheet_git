@@ -1,6 +1,16 @@
 # CHEATSHEET GIT
 ---
 
+## BRANCH 
+
+| Commande | Explications |
+| - | - |
+| `git branch` | **Visualiser les branches locales.**|
+| `git branch -r`| **Visualiser les branches distantes.**|
+| `git branch -a`| **Visualiser les branches locales et distantes.**|
+| `git branch <branche>` | **Créer une nouvelle branche.** |
+
+
 ## SWITCH
 
 | Commande | Explications |
