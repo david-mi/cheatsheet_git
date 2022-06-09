@@ -58,22 +58,22 @@
 | - | - |
 | `git stash` | **Retirer les modifications effectuées sur les fichiers suivis et les ajoute au stash.** <br> Si on veut également ajouter les fichiers non suivis au stash, rajouter `-u` |
 | `git stash list` | **Voir la liste des sauvegardes faites dans le stash avec leur id.** |
-| `git stash pop` | **Va appliquer le contenu de la dernière sauvegarde présente dans le stash sur notre working directory de la branche sur laquelle on se trouve. <br> Ca va également supprimer cette sauvegarde du stash.** |
+| `git stash pop` | **Appliquer le contenu de la dernière sauvegarde présente dans le stash sur notre working directory de la branche sur laquelle on se trouve. <br> Ca va également supprimer cette sauvegarde du stash.** |
 | `git stash apply` | **Même chose que `--pop` sauf que le la sauvegarde se sera pas supprimée du stash.** |
-|`git stash drop <stash-id>`| **Va supprimer la sauvegarde avec l'id pointée du stash.**|
-|`git stash clear`| **Va supprimer toutes les sauvegardes présentes dans le stash.**|
+|`git stash drop <stash-id>`| **Supprimer la sauvegarde avec l'id pointée du stash.**|
+|`git stash clear`| **Supprimer toutes les sauvegardes présentes dans le stash.**|
 
 # RESET
 
 | Commande | Explications |
 | - | - |
-| `git reset <commit>` | **Va déplacer HEAD sur un ancien commit en en préservant les modifications effectuées dans le répertoire de travail.** Si on ne veut pas conserver les changements, on peut rajouter `--hard` |
+| `git reset <commit>` | **Déplacer HEAD sur un ancien commit en en préservant les modifications effectuées dans le répertoire de travail.** Si on ne veut pas conserver les changements, on peut rajouter `--hard` |
 
 # REVERT 
 
 | Commande | Explications |
 | - | - |
-| `git revert <commit>` ou `git revert <dernier-commit-ciblé> <premier-commit-ciblé>`| **Va Conserver les anciens commits et faire un nouveau commit en retirant les changements induits par le commit ciblé.** <br> Répète la même opération sur tous les autres commits ciblés si il y en a plusieurs. Pour ne pas commit les changements, rajouter `--no-commit` |
+| `git revert <commit>` ou `git revert <dernier-commit-ciblé> <premier-commit-ciblé>`| **Conserver les anciens commits et faire un nouveau commit en retirant les changements induits par le commit ciblé.** <br> Répète la même opération sur tous les autres commits ciblés si il y en a plusieurs. Pour ne pas commit les changements, rajouter `--no-commit` |
 
 # RESTORE
 
@@ -89,8 +89,8 @@
 | - | - |
 | `git remote`| **Voir les labels des dépots distants liés.** <br> Pour aussi voir l'url associée aux labels, rajouter `-v`. |
 |`git remote add <label> <repo-url>`| **Lier un dépot distant avec un dépot local.** La plupart du temps **origin** sera utilisé comme label. On pourrait utiliser n'importe quel nom à la place mais c'est juste une convention. Quand on clone un repository distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement. |
-| `git remote rename <ancien-label> <nouveau-label>` | **Va renommer l'ancien label par le nouveau** |
-| `git remote remove <label>` | **Va supprimer le label et l'url associée** |
+| `git remote rename <ancien-label> <nouveau-label>` | **Renommer l'ancien label par le nouveau** |
+| `git remote remove <label>` | **Supprimer le label et l'url associée** |
 
 ## INFOS COMPLÉMENTAIRES
 ---
