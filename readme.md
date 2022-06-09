@@ -9,6 +9,8 @@
 | `git branch -r`| **Visualiser les branches distantes.**|
 | `git branch -a`| **Visualiser les branches locales et distantes.**|
 | `git branch <branche>` | **Créer une nouvelle branche.** |
+| `git branch -d <branche>` | **Supprimer la branche en local.** <br> Se positionner en dehors de celle-ci avant d'entrer la commande. <br> Pour forcer la suppression, remplacer `-d` par `-D`. |
+| `git branch -m` | **Renommer la branche sur laquelle on est positionné.**  |
 
 
 ## SWITCH
