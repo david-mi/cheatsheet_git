@@ -89,7 +89,7 @@
 | - | - |
 | `git remote`| **Voir les labels des dépots distants liés.** <br> Pour aussi voir l'url associée aux labels, rajouter `-v`. |
 |`git remote add <label> <repo-url>`| **Lier un dépot distant avec un dépot local.** La plupart du temps **origin** sera utilisé comme label. On pourrait utiliser n'importe quel nom à la place mais c'est juste une convention. Quand on clone un repository distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement. |
-| `git remote rename <ancien-label> <nouveau-label>` | **Renommer l'ancien label par le nouveau** |
+| `git remote rename <label> <new-label>` | **Renommer l'ancien label par le nouveau** |
 | `git remote remove <label>` | **Supprimer le label et l'url associée** |
 
 ## INFOS COMPLÉMENTAIRES
