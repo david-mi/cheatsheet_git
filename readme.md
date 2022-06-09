@@ -38,7 +38,7 @@
 
 | Commande| Explications |
 | - | - |
-| `git commit -am "<message>"` |  **Stage et commit tous les fichiers modifiés.** Cela ne remplace pas un `git add .` suivi d'un commit car le flag `-a` va stage seulement les fichiers suivis alors que `git add .` va aussi prendre les nouveaux fichiers en compte. |
+| <div style="width:235px">`git commit -ad "<message>"`</div> |  **Stage et commit tous les fichiers modifiés.** Cela ne remplace pas un `git add .` suivi d'un commit car le flag `-a` va stage seulement les fichiers suivis alors que `git add .` va aussi prendre les nouveaux fichiers en compte. |
 | `git commit --amend` | **Remplace le précédent commit.** Le nouveau commit contiendra les changements qu'on a stage en plus de ceux du précédent commit. Le hash sera différent. Si on veut changer le nom du commit, on peut rajouter `-m <message>`. Au contraire, si on veut juste ajouter des changements en gardant l'ancien message, on peut ajouter `--no-edit`. Il est possible de changer le nom du commit sans avoir de choses supplémentaires à envoyer.|
 
 ## DIFF
