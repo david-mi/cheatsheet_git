@@ -61,12 +61,13 @@
 
 | Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
-| `git stash` | **Retirer les modifications effectuées sur les fichiers suivis et les ajoute au stash.** <br> Si on veut également ajouter les fichiers non suivis au stash, rajouter `-u` |
+| `git stash` | **Retirer les modifications effectuées sur les fichiers suivis et les ajoute au stash.** <br> Si on veut également ajouter les fichiers non suivis au stash, rajouter `-u`. Si on veut rajouter un nom à la sauvegarde, rajouter `-m "<nom>"` |
 | `git stash list` | **Voir la liste des sauvegardes faites dans le stash avec leur id.** |
 | `git stash pop` | **Appliquer le contenu de la dernière sauvegarde présente dans le stash sur notre working directory de la branche sur laquelle on se trouve. <br> Ca va également supprimer cette sauvegarde du stash.** |
 | `git stash apply` | **Même chose que `--pop` sauf que le la sauvegarde se sera pas supprimée du stash.** |
-|`git stash drop <stash-id>`| **Supprimer la sauvegarde avec l'id pointée du stash.**|
+|`git stash drop <numéro-stash>`| **Supprimer la sauvegarde avec l'id pointée du stash.**|
 |`git stash clear`| **Supprimer toutes les sauvegardes présentes dans le stash.**|
+| `git stash show <numéro-stash>` | **Affiche les modifications de fichier induites dans une sauvegarde.** Pour afficher un diff, rajouter `-p`. Si on ne reseigne pas de numéro, la dernière sauvegarde sera choisie. |
 
 # RESET
 
