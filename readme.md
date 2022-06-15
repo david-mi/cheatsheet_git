@@ -35,6 +35,9 @@
 | `git log` | **Afficher un log des commits jusqu'à HEAD** | 
 | `git log --all` | **Afficher un log de tous les commits** |
 | `git log --oneline` | **Formater l'affichage des logs sur une ligne** |
+| `git log --graph` | **afficher une représentation grahique de l'historique des commits**|
+| `git log --<nombre>` | **limite le nombre de commits affichés par rapport au nombre indiqué** |
+| `git log <commit-antérieur-à-commit>..<commit>` | **affiche le log des commits sur la plage donnée.** Il faut préciser le commit le plus ancien des 2 en premier. |
 
 ## COMMIT
 
@@ -119,3 +122,7 @@ Si les commits en question n'ont pas été push sur un repo distant, où des per
   - Les inconvénients sont qu'il faudrait rajouter un commit supplémentaire par commit ciblé, ce qui peut vite alourdir l'historique. On peut rajouter `--no-commit` pour seulement avoir à faire un commit nous-même après les actions.
 - Faire un `git restore <commit-ciblé> .`
   - Cela a pour avantage de le pas créer de potentiels conflits et ne va pas générer plusieurs commits.
+
+  ## Lier une branche locale et distante
+
+  Si on vient de cloner ou fetch un repo distant, les branches distantes seront répertoriées en faisant `git branch -r` mais aucune branche locale correspondante seront liées à celles-ci. Pour éviter de créer une branche nous-même et rentrer une nouvelle commande pour faire la liaison local->distant, on peut simplement effectuer un `git switch <nom-branche-distante>` ce qui aura pour effet de créer une branche ayant de meme nom que celle distante et en même temps établir le suivi (fonctionne aussi avec checkout). Cela revient à effectuer un `git switch -c <branch> --track <remote>/<branch>`
