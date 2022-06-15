@@ -1,65 +1,108 @@
 # CHEATSHEET GIT
 ---
 
+## BRANCH 
+
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
+| - | - |
+| `git branch` | **Visualiser les branches locales.**|
+| `git branch -r`| **Visualiser les branches distantes.**|
+| `git branch -a`| **Visualiser les branches locales et distantes.**|
+| `git branch <branche>` | **Créer une nouvelle branche.** |
+| `git branch -d <branche>` | **Supprimer la branche en local.** <br> Se positionner en dehors de celle-ci avant d'entrer la commande. <br> Pour forcer la suppression, remplacer `-d` par `-D`. |
+| `git branch -m` | **Renommer la branche sur laquelle on est positionné.**  |
+
+
 ## SWITCH
 
-| Commande | Explications |
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
-| `git switch <branche>` | **Changer de branche**|
-| `git switch -c <branche>`| **Créer une branche et basculer directement sur celle-ci** |
-| `git switch -` | **Revenir sur la branche où on était précédemment** |
+| `git switch <branche>` | **Changer de branche.**|
+| `git switch -c <branche>`| **Créer une branche et basculer directement sur celle-ci.** |
+| `git switch -` | **Revenir sur la branche où on était précédemment.** |
 
 ## CHECKOUT
 
-| Commande | Explications |
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
 | `git checkout <branche>` | **Changer de branche**|
 | `git checkout -b <branche>`| **Créer une branche et basculer directement sur celle-ci** |
 
 ## LOG
 
-| Commande | Explications |
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
-|`git log` | **Afficher un log des commits jusqu'à HEAD** | 
-|  `git log --all` | **Afficher un log de tous les commits** |
+| `git log` | **Afficher un log des commits jusqu'à HEAD** | 
+| `git log --all` | **Afficher un log de tous les commits** |
 | `git log --oneline` | **Formater l'affichage des logs sur une ligne** |
+| `git log --graph` | **afficher une représentation grahique de l'historique des commits**|
+| `git log --<nombre>` | **limite le nombre de commits affichés par rapport au nombre indiqué** |
+| `git log <commit-antérieur-à-commit>..<commit>` | **affiche le log des commits sur la plage donnée.** Il faut préciser le commit le plus ancien des 2 en premier. |
 
 ## COMMIT
 
-| Commande| Explications |
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
-| `git commit -am "<message>"` |  **Stage et commit tous les fichiers modifiés.** Cela ne remplace pas un `git add .` suivi d'un commit car le flag `-a` va stage seulement les fichiers suivis alors que `git add .` va aussi prendre les nouveaux fichiers en compte |
-|  `git commit --amend` | **Remplace le précédent commit.** Le nouveau commit contiendra les changements qu'on a stage en plus de ceux du précédent commit. Le hash sera différent. Si on veut changer le nom du commit, on peut rajouter `-m <message>`. Au contraire, si on veut juste ajouter des changements en gardant l'ancien message, on peut ajouter `--no-edit`|
+| `git commit -am "<message>"` |  **Stage et commit tous les fichiers modifiés.** <br> Cela ne remplace pas un `git add .` suivi d'un commit car le flag `-a` va stage seulement les fichiers suivis alors que `git add .` va aussi prendre les nouveaux fichiers en compte. |
+| `git commit --amend` | **Remplace le précédent commit.** Le nouveau commit contiendra les changements qu'on a stage en plus de ceux du précédent commit. Le hash sera différent. Si on veut changer le nom du commit, on peut rajouter `-m <message>`. Au contraire, si on veut juste ajouter des changements en gardant l'ancien message, on peut ajouter `--no-edit`. Il est possible de changer le nom du commit sans avoir de choses supplémentaires à envoyer.|
 
 ## DIFF
 
-| Commande| Explications |
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
-| `git diff` | **Voir les changements  des fichiers suivis mais pas encore stage.** Possibilité de rajouter l'argument `-w` pour ignorer les espaces. |
-| `git diff HEAD` | **Voir tous les changements des fichiers suivis depuis HEAD** |
-| `git diff --staged` ou `git diff --cached` | **Voir les changements qui ont été staged** |
-| `git diff <fichier1> <fichier2> <etc...>` | **Voir les changements dans un ou plusieurs fichiers précis** |
-|  `git diff <branche1> <branche2>` ou `git diff <branche1>..<branche2>` | **Comparer les différences sur le dernier commit pointé dans les 2 branches.** possibilité de faire la comparaison sur un ou plusieurs fichiers précis en rajoutant les noms de fichiers à la suite|
-| `git diff <commit1> <commit2>` ou `git diff <commit1>..<commit2>`|**Voir les changements entre 2 commits.** Il est aussi possible de ne citer qu'un seul commit et par défaut ça fera une comparaison de ce commit a HEAD, exemple `git diff HEAD~1` va comparer les changements entre le dernier commit et HEAD
+| `git diff` | **Voir les changements des fichiers suivis mais pas encore stage.** Possibilité de rajouter l'argument `-w` pour ignorer les espaces. |
+| `git diff HEAD` | **Voir tous les changements entre les fichiers suivis (qu'ils aient été stage ou non) et HEAD.** |
+| `git diff --staged` | **Voir les changements entre HEAD ce qui est stage.** <br> Autre notation : `git diff --cached`|
+| `git diff <fichier1> <fichier2...>` | **Voir les changements dans le où les fichiers ciblés.** |
+|  `git diff <branche1> <branche2>` | **Voir les changements dans un intervalle de branches (par rapport au dernier commit qu'elles pointent).** <br> Possibilité de faire la comparaison seulement sur certains fichiers ren rajoutant leurs noms à la suite. <br> Autre notation : `git diff <branche1>..<branche2>`
+| `git diff <commit1> <commit2>` |**Voir les changements entre 2 commits.** <br> Il est aussi possible de ne citer qu'un seul commit ça fera une comparaison entre HEAD et celui-ci. <br> Par exemple `git diff HEAD~1` va comparer les changements entre le dernier commit et HEAD. <br> Autre notation : `git diff <commit1>..<commit2>`
 
 # STASH
 
-| Commande| Explications |
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
-| `git stash` | **Retirer et stocker les derniers changements.** Si on veut également ajouter les fichiers non indexés au stash, on peut rajouter l'argument `-u`. Si on veut ajouter un message personnalisé pour ce qu'on sauvegarde dans le stash, on peut faire `git stash save "<message>"` (git stash par défaut effectue la même action que `git stash save` mais on peut pas lui passer de message). |
-| `git stash list` | **Voir la liste des stashs sauvegardés** |
-| `git stash pop` | **Va appliquer le dernier stash sauvegardé dans la branch où on se trouve et le supprimer de la mémoire** |
-| `git stash apply` | **Même chose que `--pop` sauf que le stash ne sera pas supprimé** |
-|`git stash drop <stash-id>`| **Va supprimer le stash avec l'id pointé**|
-|`git stash clear`| **Va supprimer tous les stashs**|
+| `git stash` | **Retirer les modifications effectuées sur les fichiers suivis et les ajoute au stash.** <br> Si on veut également ajouter les fichiers non suivis au stash, rajouter `-u` |
+| `git stash list` | **Voir la liste des sauvegardes faites dans le stash avec leur id.** |
+| `git stash pop` | **Appliquer le contenu de la dernière sauvegarde présente dans le stash sur notre working directory de la branche sur laquelle on se trouve. <br> Ca va également supprimer cette sauvegarde du stash.** |
+| `git stash apply` | **Même chose que `--pop` sauf que le la sauvegarde se sera pas supprimée du stash.** |
+|`git stash drop <stash-id>`| **Supprimer la sauvegarde avec l'id pointée du stash.**|
+|`git stash clear`| **Supprimer toutes les sauvegardes présentes dans le stash.**|
+
+# RESET
+
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
+| - | - |
+| `git reset <commit>` | **Déplacer HEAD sur un ancien commit en en préservant les modifications effectuées dans le répertoire de travail.** Si on ne veut pas conserver les changements, on peut rajouter `--hard` |
+
+# REVERT 
+
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
+| - | - |
+| `git revert <commit>` ou `git revert <dernier-commit-ciblé> <premier-commit-ciblé>`| **Conserver les anciens commits et faire un nouveau commit en retirant les changements induits par le commit ciblé.** <br> Répète la même opération sur tous les autres commits ciblés si il y en a plusieurs. Pour ne pas commit les changements, rajouter `--no-commit` |
 
 # RESTORE
 
-| Commande | Explications |
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
-| `git restore` | **Restorer le contenu d'un ou plusieurs fichier en fonction de HEAD** |
-| `git restore  --source <commit> <fichier1> <fichier2..>` | **Restaurer le contenu d'un ou plusieurs fichier en fonction de du commit spécifié (ne touche pas à l'historique et ne modifie pas les commits)** |
-| `git restore --staged <fichier1> <fichier2...>` | **Retirer un ou plusieurs fichier du stage** |
+| `git restore <fichier1> <fichier2..> ou . ` | **Restaurer le contenu d'un ou plusieurs fichier à l'état dans lequel ils sont sur HEAD** |
+| `git restore  --source <commit> <fichier1> <fichier2..> ou . ` | **Restaurer le contenu d'un ou plusieurs fichier en fonction de du commit spécifié.** <br> Ne va pas modifier les anciens commits. |
+| `git restore --staged <fichier1> <fichier2...>` | **Retirer un ou plusieurs fichier du stage.** |
+
+# REMOTE
+
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
+| - | - |
+| `git remote`| **Voir les labels des dépots distants liés.** <br> Pour aussi voir l'url associée aux labels, rajouter `-v`. |
+|`git remote add <label> <repo-url>`| **Lier un dépot distant avec un dépot local.** La plupart du temps **origin** sera utilisé comme label. On pourrait utiliser n'importe quel nom à la place mais c'est juste une convention. Quand on clone un repository distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement. |
+| `git remote rename <label> <new-label>` | **Renommer l'ancien label par le nouveau** |
+| `git remote remove <label>` | **Supprimer le label et l'url associée** |
+
+
+# PUSH
+
+| Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
+| - | - |
+| `git push origin --delete <branche>` | **Supprimer la branche sur un dépot distant.** |
 
 
 ## INFOS COMPLÉMENTAIRES
@@ -73,9 +116,13 @@
 
 Si les commits en question n'ont pas été push sur un repo distant, où des personnes travaillent potentiellement dessus, la solution la plus simple serait un `git reset <commit-ciblé>`. Dans le cas inverse, il y aurait 2 autres options qui permettraient de garder l'historique intact : 
 
-- Faire un `git revert <dernier-commit-ciblé> <premier-commit-ciblé>`, ce qui ferait dans l'ordre : 
-  - Annuler les changements fait par le dernier commit ciblé (sans le supprimer), et faire un nouveau commit.
-  - refaire la même chose mais pour les commits ciblés suivants (du dernier au premier)
-  - Les inconvénients seraient qu'il faudrait rajouter un commit supplémentaire par commit ciblé, ce qui peut vite alourdir l'historique. On pourrait rajouter l'argument `--no-commit` pour seulement faire un commit nous-même après les actions.
+- Faire un `git revert <dernier-commit-ciblé> <premier-commit-ciblé>`, qui ferait dans l'ordre : 
+  - Annuler les changements induits par le dernier commit ciblé (sans le supprimer), et faire un nouveau commit.
+  - refaire la même chose mais pour les commits ciblés suivants (du dernier au premier).
+  - Les inconvénients sont qu'il faudrait rajouter un commit supplémentaire par commit ciblé, ce qui peut vite alourdir l'historique. On peut rajouter `--no-commit` pour seulement avoir à faire un commit nous-même après les actions.
 - Faire un `git restore <commit-ciblé> .`
-  - Cela a pour avantage de le pas créer de potentiels conflits et de faire seulement un commit.
+  - Cela a pour avantage de le pas créer de potentiels conflits et ne va pas générer plusieurs commits.
+
+  ## Lier une branche locale et distante
+
+  Si on vient de cloner ou fetch un repo distant, les branches distantes seront répertoriées en faisant `git branch -r` mais aucune branche locale correspondante seront liées à celles-ci. Pour éviter de créer une branche nous-même et rentrer une nouvelle commande pour faire la liaison local->distant, on peut simplement effectuer un `git switch <nom-branche-distante>` ce qui aura pour effet de créer une branche ayant de meme nom que celle distante et en même temps établir le suivi (fonctionne aussi avec checkout). Cela revient à effectuer un `git switch -c <branch> --track <remote>/<branch>`
