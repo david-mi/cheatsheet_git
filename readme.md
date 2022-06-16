@@ -103,8 +103,7 @@
 
 | Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
-| `git push origin --delete <branche>` | **Supprimer la branche sur un dépot distant.** |
-
+| `git push origin -d <branche>` | **Supprimer la branche sur un dépot distant.** Si on ajoute l'argument `-f` cela aura pour effet d'écraser l'historique de la branche distante par celui en local. Une alternative plus douce est `--force-with-lease` qui fera le push seulement si la branche distante n'a pas été mise à jour entre temps. Autre notation : `git push origin --delete <branche>` |
 
 ## INFOS COMPLÉMENTAIRES
 ---
