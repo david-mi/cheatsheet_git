@@ -9,7 +9,7 @@
 | `git branch -r`| **Visualiser les branches distantes.**|
 | `git branch -a`| **Visualiser les branches locales et distantes.**|
 | `git branch <branche>` | **Créer une nouvelle branche.** |
-| `git branch -d <branche>` | **Supprimer la branche en local.** <br> Se positionner en dehors de celle-ci avant d'entrer la commande. <br> Pour forcer la suppression, remplacer `-d` par `-D`. |
+| `git branch -d <branche>` | **Supprimer la branche en local.** <br> Se positionner en dehors de celle-ci avant d'entrer la commande. <br> Pour forcer la suppression, remplacer `-d` par `-D`. Ca sera nécessaire si la branche n'a pas été mergée. |
 | `git branch -m` | **Renommer la branche sur laquelle on est positionné.**  |
 
 
@@ -67,7 +67,7 @@
 | `git stash apply` | **Même chose que `--pop` sauf que le la sauvegarde se sera pas supprimée du stash.** |
 |`git stash drop <numéro-stash>`| **Supprimer la sauvegarde avec l'id pointée du stash.**|
 |`git stash clear`| **Supprimer toutes les sauvegardes présentes dans le stash.**|
-| `git stash show <numéro-stash>` | **Affiche les modifications de fichier induites dans une sauvegarde.** Pour afficher un diff, rajouter `-p`. Si on ne reseigne pas de numéro, la dernière sauvegarde sera choisie. |
+| `git stash show <numéro-stash>` | **Affiche les modifications de fichier induites dans une sauvegarde.** Pour afficher un diff, rajouter `-p`. Si on ne renseigne pas de numéro, la dernière sauvegarde sera choisie. |
 
 # RESET
 
