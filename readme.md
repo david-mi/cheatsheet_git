@@ -103,7 +103,8 @@
 
 | Commande&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Explications |
 | - | - |
-| `git push origin -d <branche>` | **Supprimer la branche sur un dépot distant.** Si on ajoute l'argument `-f` cela aura pour effet d'écraser l'historique de la branche distante par celui en local. Une alternative plus douce est `--force-with-lease` qui fera le push seulement si la branche distante n'a pas été mise à jour entre temps. Autre notation : `git push origin --delete <branche>` |
+| `git push <label-repo-distant> <branche>` | **Va envoyer les mises à jour de la branche locale vers la branche distante.** <br> Si la liaison entre la branche locale et la branche distante n'a pas encore été faite, on peut rajouter l'argument `-u`. Suite à ça, si le label de la branche distante est nommée `origin`, on pourra juste faire la commande `git push` pour les push suivant via cette branche. Quand le label de la branche distante n'est pas précisé, git utilisera comme valeur par défaut origin, et il pointera la branche distante qui à le même nom que la branche locale. <br> Si on ajoute l'argument `-f` cela aura pour effet d'écraser l'historique de la branche distante par celui en local. Une alternative plus douce est `--force-with-lease` qui fera le push seulement si la branche distante n'a pas été mise à jour entre temps.|
+| `git push <label-repo-distant> -d <branche>` | **Supprimer la branche sur un dépot distant.** Autre notation : `git push origin --delete <branche>` |
 
 ## INFOS COMPLÉMENTAIRES
 ---
