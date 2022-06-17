@@ -34,7 +34,6 @@ header nav {
   left: 0;
   right: 0;
   height: var(--height--nav);
-  padding-block: 5px;
   border-bottom: solid 2px black;
 }
 
@@ -45,7 +44,14 @@ nav a {
   text-decoration: none;
   color: black;
   background-color: white;
-  padding: 2px;
+  height: 100%;
+  transition: 300ms ease-in-out;
+  padding-inline: 10px;
+}
+
+nav a:hover {
+  background-color: black;
+  color: white;
 }
 
 table,
