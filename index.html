@@ -6,10 +6,253 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="./dist/bundle.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
   <title>Document</title>
 </head>
 
 <body>
+
+  <!-- 
+
+  &lt;branche&gt;
+
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2></h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <pre>
+            <b></b>
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+-->
+
+  <!-- BRANCH -->
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>BRANCH</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git branch</code></td>
+        <td>
+          <pre>
+            <b>Visualiser les branches locales.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git branch -r</code></td>
+        <td>
+          <pre>
+            <b>Visualiser les branches distantes.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git branch -a</code></td>
+        <td>
+          <pre>
+          <b>Visualiser les branches locales et distantes.</b>
+        </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git &lt;branche&gt;</code></td>
+        <td>
+          <pre>
+            <b>Créer une nouvelle branche.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git branch -d &lt;branch&gt;</code></td>
+        <td>
+          <pre>
+            <b> Supprimer la branche en local.</b>
+            Se positionner en dehors de celle-ci avant d'entrer la commande.
+            Pour forcer la suppression, remplacer <code>-d</code> par <code>-D</code>. Ca sera nécessaire si la branche n'a pas été mergée.
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git branch -m</code></td>
+        <td>
+          <pre>
+            <b>Renommer la branche sur laquelle on est positionnée.</b>
+          </pre>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>SWITCH</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git switch &lt;branche&gt;</code></td>
+        <td>
+          <pre>
+            <b>Changer de branche.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git switch -c &lt;branche&gt;</code></td>
+        <td>
+          <pre>
+            <b>	Créer une branche et basculer directement sur celle-ci.</b>
+          </pre>
+        </td>
+      </tr>
+      <!-- 
+        <tr>
+      <td><code></code></td>
+      <td><b></b></td>
+        </tr>
+     -->
+      <tr>
+        <td><code>git switch -</code></td>
+        <td>
+          <pre>
+          <b>Revenir sur la branche où on était précédemment.</b>
+        </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>CHECKOUT</h2>
+        </th>
+      </tr>
+
+    <tbody>
+      <tr>
+        <td><code>git checkout &lt;branch&gt;</code></td>
+        <td>
+          <pre>
+              <b>Changer de branche.</b>
+            </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git checkout -d &lt;branch&gt;</code></td>
+        <td>
+          <pre>
+              <b>Créer une branche et basculer directement sur celle-ci.</b>
+            </pre>
+        </td>
+      </tr>
+    </tbody>
+    </thead>
+
+
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>LOG</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git log</code></td>
+        <td>
+          <pre>
+            <b>Afficher un log des commits jusqu'à HEAD.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git --all</code></td>
+        <td>
+          <pre>
+            <b>Afficher un log de tous les commits.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git log --oneline</code></td>
+        <td>
+          <pre>
+            <b>Formater l'affichage des logs sur une ligne.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git log --graph</code></td>
+        <td>
+          <pre>
+            <b>Afficher une représentation grahique de l'historique des commits.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git log --&lt;nombre&gt;</code></td>
+        <td>
+          <pre>
+            <b>Limite le nombre de commits affichés par rapport au nombre indiqué.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git log --&lt;commit-b&gt;..&lt;commit-a&gt;</code></td>
+        <td>
+          <pre>
+            <b>Affiche le log des commits sur la plage donnée.</b>
+            Il faut préciser le commit le plus ancien des 2 en premier.
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
   <div id="gitgraph"></div>
 </body>
 

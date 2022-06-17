@@ -1,0 +1,40 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  gap: 50px;
+  padding-block: 50px;
+}
+
+table,
+td,
+th {
+  border: solid 1px black;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+tr td:nth-child(1) {
+  white-space: nowrap;
+}
+
+code {
+  display: inline-block;
+  background-color: rgb(255, 212, 94);
+  padding: 5px;
+  word-wrap: nowrap;
+}
+
+pre {
+  white-space: pre-line;
+}

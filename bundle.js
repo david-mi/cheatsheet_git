@@ -5,16 +5,17 @@ const graphContainer = document.getElementById("gitgraph");
 const options = {
   orientation: "vertical",
   template: templateExtend("metro", {
-    colors: ["orange", "blue", "orange"],
+    colors: ["#023047", "#fb8500", "#219ebc"],
     branch: {
-      spacing: "50",
+      spacing: "40"
     },
     commit: {
+      spacing: "50",
       message: {
         displayAuthor: false,
+        displayHash: false
       }
     },
-    // …
   }),
 };
 
@@ -22,17 +23,19 @@ const gitgraph = createGitgraph(graphContainer, options);
 
 const main = gitgraph.branch({
   name: "main"
-
 });
 
-main.commit({
-  subject: "init",
-  hash: "dd755a6"
-})
-  .commit("Add README");
-const feature = gitgraph.branch("feature");
-feature.commit("");
-main.commit("");
-feature.commit("");
-// Merge `newFeature` into `main`
-// main.merge(newFeature, "Release new version")
+main.commit("Init")
+  .commit({ subject: "Add README", hash: "" });
+const header = gitgraph.branch("feat/header");
+const footer = gitgraph.branch("feat/footer");
+
+footer
+  .commit("Add contact")
+  .commit("Add External links");
+
+main.merge(footer, "merge footer");
+
+header
+  .commit("Add Navbar")
+  .commit("Add Logo");
