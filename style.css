@@ -12,15 +12,15 @@ html {
 }
 
 :root {
-  --clr-nav-bg: rgba(0, 0, 0, 0.11);
+  --clr-nav-bg: rgba(0, 0, 0, 0);
   --height--nav: 40px;
 }
 
 body {
   display: grid;
   place-items: center;
-  gap: 50px;
-  padding: 50px 20%;
+  gap: 40px;
+  padding: 0 20% 50px;
 }
 
 header nav {
@@ -35,6 +35,7 @@ header nav {
   right: 0;
   height: var(--height--nav);
   padding-block: 5px;
+  border-bottom: solid 2px black;
 }
 
 nav a {
@@ -63,7 +64,6 @@ table {
   scroll-margin-top: var(--height--nav);
   width: 100%;
   scroll-behavior: smooth;
-  margin-top: var(--height--nav);
 }
 
 th {
