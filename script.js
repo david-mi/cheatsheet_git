@@ -5,16 +5,20 @@ const copyBtn = `
 </button>
 `;
 
-const addShowAlertClass = () => {
-  confirmCopyDiv.classList.remove("show");
+let timeout = "";
+
+const removeShowAlertClass = () => {
+  confirmCopyDiv.classList.remove("showConfirmBox");
+  confirmCopyDiv.offsetHeight;
 };
 
 const showConfirmationAlert = (command) => {
-  confirmCopyDiv.classList.remove("show");
-  confirmCopyDiv.classList.add("show");
+  removeShowAlertClass();
+  clearTimeout(timeout);
+  confirmCopyDiv.classList.add("showConfirmBox");
   confirmCopyDiv.innerText = command + " a été ajouté au presse papier";
 
-  setTimeout(addShowAlertClass, 3000);
+  timeout = setTimeout(removeShowAlertClass, 3000);
 };
 
 const copyCommand = (cell) => {
