@@ -23,6 +23,14 @@
       <a href="#switch">SWITCH</a>
       <a href="#checkout">CHECKOUT</a>
       <a href="#log">LOG</a>
+      <a href="#commit">COMMIT</a>
+      <a href="#diff">DIFF</a>
+      <a href="#stash">STASH</a>
+      <a href="#reset">RESET</a>
+      <a href="#revert">REVERT</a>
+      <a href="#restore">RESTORE</a>
+      <a href="#remote">REMOTE</a>
+      <a href="#push">PUSH</a>
     </nav>
   </header>
 
@@ -261,6 +269,304 @@
           <pre>
             <b>Affiche le log des commits sur la plage donnée.</b>
             Il faut préciser le commit le plus ancien des 2 en premier.
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table id="commit">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>COMMIT</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git commit -am "&lt;message&gt;"</code></td>
+        <td>
+          <pre>
+            <b>Stage et commit tous les fichiers modifiés.</b>
+            Cela ne remplace pas un <code>git add . </code> suivi d'un commit car le flag <code>-a</code> va stage seulement les fichiers suivis alors que <code>git add . </code> va aussi prendre les nouveaux fichiers en compte.
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git commit --amend</code></td>
+        <td>
+          <pre>
+            <b>Remplace le précédent commit.</b>
+            Le nouveau commit contiendra les changements qu'on a stage en plus de ceux du précédent commit. Le hash sera différent. Si on veut changer le nom du commit, on peut rajouter <code>-m "&lt;message&gt;"</code>. 
+            Au contraire, si on veut juste ajouter des changements en gardant l'ancien message, on peut ajouter <code>--no-edit</code>. Il est possible de changer le nom du commit sans avoir de choses supplémentaires à envoyer.
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table id="diff">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>DIFF</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git diff</code></td>
+        <td>
+          <pre>
+            <b>Voir les changements des fichiers suivis mais pas encore stage.</b>
+            Possibilité de rajouter l'argument <code>-w</code> pour ignorer les espaces.
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git diff HEAD</code></td>
+        <td>
+          <pre>
+            <b>Voir tous les changements entre les fichiers suivis (qu'ils aient été stage ou non) et HEAD.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git diff --staged</code></td>
+        <td>
+          <pre>
+            <b>Voir les changements entre HEAD ce qui est stage.</b>
+            Autre notation : <code>git diff --cached</code>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git diff &lt;fichier1&gt; &lt;fichier2...&gt;</code></td>
+        <td>
+          <pre>
+            <b>Voir les changements dans le où les fichiers ciblés.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git diff &lt;branche1&gt; &lt;branche2&gt;</code></td>
+        <td>
+          <pre>
+            <b>Voir les changements dans un intervalle de branches (par rapport au dernier commit qu'elles pointent).</b>
+            Possibilité de faire la comparaison seulement sur certains fichiers ren rajoutant leurs noms à la suite.
+            Autre notation : <code>git diff &lt;branche1&gt;..&lt;branche2&gt;</code>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git diff &lt;commit1&gt; &lt;commit2&gt;</code></td>
+        <td>
+          <pre>
+            <b>Voir les changements entre 2 commits.</b>
+            Il est aussi possible de ne citer qu'un seul commit ça fera une comparaison entre HEAD et celui-ci. 
+            Par exemple <code>git diff HEAD~1</code> va comparer les changements entre le dernier commit et HEAD. 
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table id="stash">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>STASH</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git stash</code></td>
+        <td>
+          <pre>
+            <b>Retirer les modifications effectuées sur les fichiers suivis et les ajoute au stash.</b>
+            Si on veut également ajouter les fichiers non suivis au stash, rajouter <code>-u</code>.
+            Si on veut rajouter un nom à la sauvegarde, rajouter <code>-m "&lt;nom&gt;"</code>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git stash list</code></td>
+        <td>
+          <pre>
+            <b>Voir la liste des sauvegardes faites dans le stash avec leur id.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git stash pop</code></td>
+        <td>
+          <pre>
+            <b>Appliquer le contenu de la dernière sauvegarde présente dans le stash sur notre working directory.</b>
+            La sauvegarde sera ensuite supprimée du stash.
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git stash apply</code></td>
+        <td>
+          <pre>
+            <b>Même chose que <code>--pop</code> sauf que le la sauvegarde sera conservée dans le stash.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git stash drop &lt;id&gt;</code></td>
+        <td>
+          <pre>
+            <b>Supprimer la sauvegarde avec l'id pointée du stash.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git stash clear</code></td>
+        <td>
+          <pre>
+            <b>Supprimer toutes les sauvegardes présentes dans le stash.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git stash show &lt;id&gt;</code></td>
+        <td>
+          <pre>
+            <b>Affiche les modifications de fichier induites dans une sauvegarde.</b>
+            Pour afficher un diff, rajouter <code>-p</code>. Si on ne renseigne pas de numéro, la dernière sauvegarde sera choisie.
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table id="reset">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>RESET</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git reset &lt;commit&gt;</code></td>
+        <td>
+          <pre>
+            <b>Déplacer HEAD sur un ancien commit en en préservant les modifications effectuées dans le répertoire de travail.</b>
+            Si on ne veut pas conserver les changements, on peut rajouter <code>--hard</code>.
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table id="revert">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>REVERT</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git revert &lt;commit&gt;</code></td>
+        <td>
+          <pre>
+            <b>Conserver les anciens commits et faire un nouveau commit en retirant les changements induits par le commit ciblé.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git revert &lt;commit-b&gt; &lt;commit-a&gt;</code></td>
+        <td>
+          <pre>
+            <b>Même procédure mais va répéter la même opération sur tous les autres commits ciblés. et fera un nouveau commit à chaque fois.</b>
+            Pour ne pas commit les changements, rajouter <code>--no-commit</code>
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table id="restore">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>RESTORE</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git restore &lt;fichier(s)&gt;</code></td>
+        <td>
+          <pre>
+            <b>Restaurer le contenu d'un ou plusieurs fichier à l'état dans lequel ils sont sur HEAD.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git restore --source &lt;fichier(s)&gt;</code></td>
+        <td>
+          <pre>
+            <b>Restaurer le contenu d'un ou plusieurs fichier en fonction de du commit spécifié.</b>
+            Ne va pas modifier les anciens commits.
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git restore --staged &lt;fichier(s)&gt;</code></td>
+        <td>
+          <pre>
+            <b>Retirer un ou plusieurs fichier du stage.</b>
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2></h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <pre>
+            <b></b>
           </pre>
         </td>
       </tr>
