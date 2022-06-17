@@ -1,15 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@500;600;700;800&display=swap');
+
 * {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Rokkitt', serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --clr-nav-bg: rgba(0, 0, 0, 0.11);
+  --height--nav: 40px;
 }
 
 body {
   display: grid;
   place-items: center;
   gap: 50px;
-  padding-block: 50px;
+  padding: 50px 20%;
+}
+
+header nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--clr-nav-bg);
+  backdrop-filter: blur(2px);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--height--nav);
+  padding-block: 5px;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 2px;
 }
 
 table,
@@ -24,8 +58,24 @@ td {
   padding: 10px;
 }
 
+table {
+  scroll-margin-top: var(--height--nav);
+  width: 100%;
+  scroll-behavior: smooth;
+  margin-top: var(--height--nav);
+}
+
+th {
+  font-size: 1.1rem;
+}
+
+td {
+  font-size: 1.2rem;
+}
+
 tr td:nth-child(1) {
   white-space: nowrap;
+  width: 350px;
 }
 
 code {
