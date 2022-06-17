@@ -16,7 +16,7 @@ const showConfirmationAlert = (command) => {
   removeShowAlertClass();
   clearTimeout(timeout);
   confirmCopyDiv.classList.add("showConfirmBox");
-  confirmCopyDiv.innerText = command + " a été ajouté au presse papier";
+  confirmCopyDiv.innerText = command + " a été copié";
 
   timeout = setTimeout(removeShowAlertClass, 3000);
 };
