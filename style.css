@@ -24,6 +24,7 @@ body {
 }
 
 header nav {
+  z-index: 10;
   position: fixed;
   display: flex;
   justify-content: space-evenly;
@@ -71,11 +72,42 @@ th {
 
 td {
   font-size: 1.2rem;
+
 }
 
-tr td:nth-child(1) {
+td:nth-child(1) {
+  position: relative;
   white-space: nowrap;
   width: 350px;
+}
+
+.copyBtn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  background-color: rgb(0, 0, 0);
+  width: 40px;
+  aspect-ratio: 1/1;
+  border: none;
+  transition: 400ms;
+}
+
+.copyBtn:hover {
+  cursor: pointer;
+  background-color: rgb(255, 212, 94);
+  border-radius: 5px;
+}
+
+.copyBtn:hover svg {
+  color: black;
+}
+
+.copyBtn svg {
+  color: white;
+  transition: 400ms;
 }
 
 code {
