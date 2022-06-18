@@ -27,10 +27,8 @@ header nav {
   z-index: 10;
   position: fixed;
   display: flex;
-  width: fit-content;
+  width: 10rem;
   flex-direction: column;
-  background-color: var(--clr-nav-bg);
-  left: 0;
   top: 0;
   bottom: 0;
 }
