@@ -16,7 +16,7 @@ html {
   --height--nav: 40px;
 }
 
-body {
+main {
   display: grid;
   place-items: center;
   gap: 40px;
