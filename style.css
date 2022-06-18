@@ -12,6 +12,7 @@ html {
 }
 
 :root {
+  --clr-main: rgb(255, 212, 94);
   --clr-nav-bg: rgba(0, 0, 0, 0);
   --width--nav: 11rem;
 }
@@ -40,7 +41,7 @@ nav a {
   font-size: 1.4rem;
   text-decoration: none;
   height: 100%;
-  transition: 300ms ease-in-out;
+  transition: 400ms cubic-bezier(.44, 1.67, .91, .9) 50ms;
   padding-inline: 10px;
   color: black;
 }
@@ -53,20 +54,35 @@ nav a::before {
   left: -50px;
   z-index: -1;
   transform: translateX(-100%);
-  transition: 400ms cubic-bezier(.44, 1.67, .91, .9);
+  transition: 400ms cubic-bezier(.44, 1.67, .91, .9) 50ms;
+}
+
+nav a:hover {
+  color: white;
+}
+
+nav a:hover::before {
+  transform: translateX(0);
 }
 
 nav a:hover,
 .clicked__anchor {
-  color: white;
   font-size: 1.7rem;
 }
 
-nav a:hover::before,
-.clicked__anchor::before {
+nav a:hover::before {
   transform: translateX(0);
 }
 
+.clicked__anchor,
+.clicked__anchor:hover {
+  color: black;
+}
+
+.clicked__anchor::before {
+  background-color: var(--clr-main);
+  transform: translateX(0);
+}
 
 main {
   display: grid;
