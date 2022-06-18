@@ -13,7 +13,7 @@ html {
 
 :root {
   --clr-main: rgb(255, 212, 94);
-  --clr-nav-bg: rgba(0, 0, 0, 0);
+  --clr-main-lighter: rgba(255, 212, 94, 0.2);
   --width--nav: 11rem;
 }
 
@@ -94,6 +94,13 @@ main {
   margin-left: 11rem;
 }
 
+section {
+  display: grid;
+  place-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  width: 100%;
+}
 
 table,
 td,
@@ -144,7 +151,7 @@ td:nth-child(1) {
 
 .copyBtn:hover {
   cursor: pointer;
-  background-color: rgb(255, 212, 94);
+  background-color: var(--clr-main);
   border-radius: 5px;
 }
 
@@ -159,7 +166,7 @@ td:nth-child(1) {
 
 code {
   display: inline-block;
-  background-color: rgb(255, 212, 94);
+  background-color: var(--clr-main);
   padding: 5px;
   word-wrap: nowrap;
 }
@@ -201,20 +208,13 @@ pre {
   transform-origin: top right;
 }
 
-section {
-  display: grid;
-  place-items: center;
-  gap: 40px;
-  max-width: 1000px;
-  width: 100%;
-}
-
 article {
   width: 100%;
 }
 
 article h3 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 #fast_forward_graph,
@@ -223,4 +223,6 @@ article h3 {
   justify-content: space-between;
   align-items: flex-end;
   height: 224px;
+  background-color: var(--clr-main-lighter);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
