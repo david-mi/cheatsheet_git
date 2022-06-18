@@ -85,6 +85,7 @@ td {
 }
 
 table {
+  max-width: 1000px;
   width: 100%;
   scroll-behavior: smooth;
 }
