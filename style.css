@@ -84,6 +84,7 @@ nav a:hover::before {
 .clicked__anchor::before {
   background-color: var(--clr-main);
   transform: translateX(0);
+  transition-duration: 100ms;
 }
 
 main {
