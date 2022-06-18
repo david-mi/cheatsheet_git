@@ -1,4 +1,4 @@
-import globalOptions from "./globalOptions.js";
+import { globalOptions } from "./index.js";
 
 const firstMergeCommit = () => {
   const firstMergeCommitDiv = document.getElementById("merge_commit_graph");
@@ -54,5 +54,5 @@ const mergeCommit = () => {
   fourthMergeCommit();
 };
 
-export default mergeCommit();
+export default mergeCommit;
 

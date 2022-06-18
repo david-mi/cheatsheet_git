@@ -1,4 +1,4 @@
-import globalOptions from "./globalOptions.js";
+import { globalOptions } from "./index.js";
 
 const firstFastForward = () => {
   const firstFastForwardDiv = document.getElementById("fast_forward_graph");
@@ -37,5 +37,5 @@ const fastForwardMerge = () => {
   thirdFastForward();
 };
 
-export default fastForwardMerge();
+export default fastForwardMerge;
 
