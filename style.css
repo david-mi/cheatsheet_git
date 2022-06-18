@@ -27,14 +27,12 @@ header nav {
   z-index: 10;
   position: fixed;
   display: flex;
-  justify-content: space-evenly;
+  width: fit-content;
+  flex-direction: column;
   background-color: var(--clr-nav-bg);
-  backdrop-filter: blur(2px);
-  top: 0;
   left: 0;
-  right: 0;
-  height: var(--height--nav);
-  border-bottom: solid 2px black;
+  top: 0;
+  bottom: 0;
 }
 
 nav a {
@@ -73,7 +71,6 @@ td {
 }
 
 table {
-  scroll-margin-top: var(--height--nav);
   width: 100%;
   scroll-behavior: smooth;
 }
