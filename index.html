@@ -31,6 +31,7 @@
       <a href="#restore">RESTORE</a>
       <a href="#remote">REMOTE</a>
       <a href="#push">PUSH</a>
+      <a href="#Infos">INFOS</a>
     </nav>
   </header>
 
@@ -60,8 +61,6 @@
     </tbody>
   </table>
 -->
-
-  <!-- BRANCH -->
 
   <table id="branch">
     <thead>
@@ -159,12 +158,7 @@
           </pre>
         </td>
       </tr>
-      <!-- 
-        <tr>
-      <td><code></code></td>
-      <td><b></b></td>
-        </tr>
-     -->
+
       <tr>
         <td><code>git switch -</code></td>
         <td>
@@ -552,27 +546,78 @@
     </tbody>
   </table>
 
-  <table>
+  <table id="remote">
     <thead>
       <tr>
         <th colspan="2">
-          <h2></h2>
+          <h2>REMOTE</h2>
         </th>
       </tr>
     </thead>
 
     <tbody>
       <tr>
-        <td><code></code></td>
+        <td><code>git remote</code></td>
         <td>
           <pre>
-            <b></b>
+            <b>Voir les labels des dépots distants liés.</b>
+            Pour aussi voir l'url associée aux labels, rajouter <code>-v</code>.
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git remote add &lt;label&gt;&lt;repo-url&gt;</code></td>
+        <td>
+          <pre>
+            <b>Lier un dépot distant avec un dépot local.</b>
+            La plupart du temps origin sera utilisé comme label. On pourrait utiliser n'importe quel nom à la place mais c'est juste une convention. Quand on clone un repository distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement.
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git remote rename &lt;label&gt; &lt;new-label&gt;</new-label></code></td>
+        <td>
+          <pre>
+            <b>Renommer l'ancien label par le nouveau.</b>
+          </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>git remote remove &lt;label&gt;</code></td>
+        <td>
+          <pre>
+            <b>Supprimer le label et l'url associée.</b>
           </pre>
         </td>
       </tr>
     </tbody>
   </table>
 
+  <table id="push">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2>PUSH</h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code>git push &lt;label-repo-distant&gt; &lt;branche&gt;</code></td>
+        <td>
+          <pre>
+            <b><branche> 	Va envoyer les mises à jour de la branche locale vers la branche distante.</b>
+            Si la liaison entre la branche locale et la branche distante n'a pas encore été faite, on peut rajouter l'argument <code>-u</code>. Suite à ça, si le label de la branche distante est nommée <b>origin</b>, on pourra juste faire la commande <code>git push</code> pour les push suivant via cette branche. Quand le label de la branche distante n'est pas précisé, git utilisera comme valeur par défaut <b>origin</b>, et il pointera la branche distante qui à le même nom que la branche locale.
+            Si on ajoute l'argument <code>-f</code> cela aura pour effet d'écraser l'historique de la branche distante par celui en local. Une alternative plus douce est <code>--force-with-lease</code> qui fera le push seulement si la branche distante n'a pas été mise à jour entre temps. <a href="#">Plus d'infos dans cette partie</a>
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <div id="gitgraph"></div>
 </body>
 
