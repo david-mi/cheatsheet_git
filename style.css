@@ -17,6 +17,8 @@ html {
   --width--nav: 11rem;
 }
 
+
+
 header .main__title {
   font-size: 2.5rem;
   text-align: center;
@@ -106,9 +108,8 @@ td {
 }
 
 table {
-  max-width: 1000px;
-  width: 100%;
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 th {
@@ -198,4 +199,28 @@ pre {
   color: white;
   pointer-events: none;
   transform-origin: top right;
+}
+
+section {
+  display: grid;
+  place-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+article {
+  width: 100%;
+}
+
+article h3 {
+  text-align: center;
+}
+
+#fast_forward_graph,
+#merge_commit_graph {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 224px;
 }

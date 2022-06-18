@@ -1,3 +1,6 @@
+import fastForwardMerge from './functions/gitgraph/fastForward.js';
+import mergeCommit from './functions/gitgraph/mergeCommit.js';
+
 const confirmCopyDiv = document.querySelector(".confirmCopy");
 const copyBtn = `
 <button class="copyBtn">
@@ -63,3 +66,4 @@ const putListenerOnLinks = () => {
 addCopyBtns();
 putListenerOnLinks();
 
+// fastForwardMerge();
