@@ -2,8 +2,9 @@ import { copyBtn, showConfirmationAlert } from "./index.js";
 
 const copyToClipboard = (cell) => {
   const command = cell.innerText;
-  navigator.clipboard.writeText(command);
-  showConfirmationAlert(command);
+  const removeExamples = command.match(/[a-z-\s]+/)[0];
+  navigator.clipboard.writeText(removeExamples);
+  showConfirmationAlert(removeExamples);
 };
 
 const addCopyToClipBoardButtons = () => {
