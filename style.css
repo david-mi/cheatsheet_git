@@ -56,14 +56,17 @@ nav a::before {
   transition: 400ms cubic-bezier(.44, 1.67, .91, .9);
 }
 
-nav a:hover {
+nav a:hover,
+.clicked__anchor {
   color: white;
   font-size: 1.7rem;
 }
 
-nav a:hover::before {
+nav a:hover::before,
+.clicked__anchor::before {
   transform: translateX(0);
 }
+
 
 main {
   display: grid;

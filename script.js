@@ -5,6 +5,7 @@ const copyBtn = `
 </button>
 `;
 
+let clickedAnchor = "";
 let timeout = "";
 
 const removeShowAlertClass = () => {
@@ -27,6 +28,15 @@ const copyCommand = (cell) => {
   showConfirmationAlert(command);
 };
 
+const handleClickedAnchorClass = (target) => {
+  if (clickedAnchor) {
+    clickedAnchor.classList.remove("clicked__anchor");
+  }
+
+  clickedAnchor = target;
+  clickedAnchor.classList.add("clicked__anchor");
+};
+
 const addCopyBtns = () => {
   const commandsCells = document.querySelectorAll("tr td:nth-child(1)");
 
@@ -34,9 +44,22 @@ const addCopyBtns = () => {
     cell.insertAdjacentHTML("beforeend", copyBtn);
     const button = document.querySelectorAll(".copyBtn");
 
-    button[i].addEventListener("click", () => copyCommand(cell));
+    button[i].addEventListener("click", ({ target }) => {
+      copyCommand(cell);
+    });
+  });
+};
+
+const putListenerOnLinks = () => {
+  const links = document.querySelectorAll("nav a");
+
+  links.forEach(link => {
+    link.addEventListener("click", ({ target }) => {
+      handleClickedAnchorClass(target);
+    });
   });
 };
 
 addCopyBtns();
+putListenerOnLinks();
 
