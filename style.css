@@ -20,7 +20,8 @@ main {
   display: grid;
   place-items: center;
   gap: 40px;
-  padding: 0 20% 50px;
+  padding: 0 5% 50px;
+  margin-left: 11rem;
 }
 
 header nav {
@@ -100,7 +101,8 @@ td {
 td:nth-child(1) {
   position: relative;
   white-space: nowrap;
-  width: 350px;
+  width: 25rem;
+  padding: 10px 80px 10px 10px;
 }
 
 .copyBtn {
