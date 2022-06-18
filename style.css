@@ -27,27 +27,42 @@ header nav {
   z-index: 10;
   position: fixed;
   display: flex;
-  width: 10rem;
+  width: 11rem;
   flex-direction: column;
   top: 0;
   bottom: 0;
 }
 
 nav a {
+  position: relative;
   display: flex;
   align-items: center;
   font-size: 1.4rem;
   text-decoration: none;
-  color: black;
-  background-color: white;
   height: 100%;
   transition: 300ms ease-in-out;
   padding-inline: 10px;
+  color: black;
+}
+
+nav a::before {
+  position: absolute;
+  content: "";
+  background-color: black;
+  inset: 0;
+  left: -50px;
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: 400ms cubic-bezier(.44, 1.67, .91, .9);
 }
 
 nav a:hover {
-  background-color: black;
   color: white;
+  font-size: 1.7rem;
+}
+
+nav a:hover::before {
+  transform: translateX(0);
 }
 
 .main__title {
