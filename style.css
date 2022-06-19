@@ -104,10 +104,14 @@ section {
   width: 100%;
 }
 
+h2 {
+  background-color: black;
+  color: white
+}
+
 table,
 td,
 th {
-  border: solid 1px black;
   border-collapse: collapse;
 }
 
@@ -123,10 +127,13 @@ table {
 
 th {
   font-size: 1.1rem;
+  padding: 0;
+  border: 1px solid black;
 }
 
 td {
   font-size: 1.2rem;
+  border: solid 1px black;
 
 }
 
@@ -175,7 +182,6 @@ code {
   display: inline-block;
   background-color: var(--clr-main);
   padding: 5px;
-  word-wrap: nowrap;
 }
 
 pre {
@@ -239,18 +245,12 @@ article h3 {
   }
 
   table {
-    border: none;
-  }
-
-  th {
-    border: none;
+    border: solid 1px black;
   }
 
   tr {
     display: flex;
     flex-direction: column;
-    border: solid 1px black;
-    border-collapse: collapse;
   }
 
   td {
@@ -261,16 +261,9 @@ article h3 {
   }
 
   td:nth-child(1) {
-    white-space: nowrap;
     width: 100%;
     padding: 30px 0 30px 0;
-    font-size: 1.4rem;
     font-weight: bold;
-  }
-
-  td:nth-child(2) {
-    background-color: var(--clr-main-lighter);
-    text-align: left;
   }
 
   #fast_forward_graph,
@@ -291,8 +284,27 @@ article h3 {
 
 }
 
-@media screen and (max-width: 800px) {
-  .copyBtn {
+@media screen and (max-width: 700px) {
+  nav {
     display: none;
+  }
+
+  main {
+    padding: 0;
+    margin: 0;
+  }
+
+  th {
+    padding: 0;
+  }
+
+  td {
+    border-right: 0px;
+    border-left: 0px;
+    border: 0;
+  }
+
+  table {
+    border: solid 1px black;
   }
 }
