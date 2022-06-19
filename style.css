@@ -14,7 +14,8 @@ html {
 :root {
   --clr-main: rgb(255, 212, 94);
   --clr-main-lighter: rgba(255, 212, 94, 0.2);
-  --width--nav: 11rem;
+  --width-nav: 11rem;
+  --font-size-nav: 1.4rem;
 }
 
 
@@ -23,14 +24,14 @@ header .main__title {
   font-size: 2.5rem;
   text-align: center;
   padding-block: 50px;
-  margin-left: var(--width--nav);
+  margin-left: var(--width-nav);
 }
 
 nav {
   z-index: 10;
   position: fixed;
   display: flex;
-  width: var(--width--nav);
+  width: var(--width-nav);
   flex-direction: column;
   top: 0;
   bottom: 0;
@@ -40,7 +41,7 @@ nav a {
   position: relative;
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: var(--font-size-nav);
   text-decoration: none;
   height: 100%;
   transition: 400ms cubic-bezier(.44, 1.67, .91, .9) 0ms;
@@ -92,7 +93,7 @@ main {
   place-items: center;
   gap: 40px;
   padding: 0 5% 50px;
-  margin-left: 11rem;
+  margin-left: var(--width-nav);
 }
 
 section {
@@ -134,6 +135,11 @@ td:nth-child(1) {
   white-space: nowrap;
   width: 25rem;
   padding: 10px 80px 10px 10px;
+}
+
+td:nth-child(2) {
+  background-color: var(--clr-main-lighter);
+  text-align: left;
 }
 
 .copyBtn {
@@ -225,4 +231,68 @@ article h3 {
   align-items: flex-end;
   min-height: 224px;
   background-color: var(--clr-main-lighter);
+}
+
+@media screen and (max-width: 1300px) {
+  main {
+    padding: 10px;
+  }
+
+  table {
+    border: none;
+  }
+
+  th {
+    border: none;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    border-collapse: collapse;
+  }
+
+  td {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border: none;
+  }
+
+  td:nth-child(1) {
+    white-space: nowrap;
+    width: 100%;
+    padding: 30px 0 30px 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  td:nth-child(2) {
+    background-color: var(--clr-main-lighter);
+    text-align: left;
+  }
+
+  #fast_forward_graph,
+  #merge_commit_graph {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    gap: 20px;
+    padding-top: 30px;
+  }
+
+  #fast_forward_graph svg,
+  #merge_commit_graph svg {
+    min-width: 300px;
+    display: flex;
+    place-items: center;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .copyBtn {
+    display: none;
+  }
 }
