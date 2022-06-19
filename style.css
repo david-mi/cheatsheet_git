@@ -138,10 +138,21 @@ td {
 }
 
 td:nth-child(1) {
-  position: relative;
-  white-space: nowrap;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  grid-template-areas: ". cmd . btn";
   width: 25rem;
-  padding: 10px 80px 10px 10px;
+  padding: 30px 10px 30px 10px;
+  font-weight: bold;
+  height: 100% !important;
+}
+
+td:nth-child(1) code {
+  grid-area: cmd;
+}
+
+td:nth-child(1) button {
+  grid-area: btn;
 }
 
 td:nth-child(2) {
@@ -150,10 +161,6 @@ td:nth-child(2) {
 }
 
 .copyBtn {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
   display: grid;
   place-items: center;
   background-color: rgb(0, 0, 0);
@@ -262,9 +269,20 @@ article h3 {
   }
 
   td:nth-child(1) {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto;
+    grid-template-areas: ". cmd . btn";
     width: 100%;
-    padding: 30px 0 30px 0;
+    padding: 30px 10px 30px 10px;
     font-weight: bold;
+  }
+
+  td:nth-child(1) code {
+    grid-area: cmd;
+  }
+
+  td:nth-child(1) button {
+    grid-area: btn;
   }
 
   #fast_forward_graph,
