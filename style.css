@@ -42,7 +42,7 @@ nav a {
   font-size: var(--font-size-nav);
   text-decoration: none;
   height: 100%;
-  transition: 400ms cubic-bezier(.44, 1.67, .91, .9) 0ms;
+  transition: 300ms ease-out 0ms;
   padding-inline: 10px;
   color: black;
 }
@@ -55,7 +55,7 @@ nav a::before {
   left: -50px;
   z-index: -1;
   transform: translateX(-100%);
-  transition: 400ms cubic-bezier(.44, 1.67, .91, .9) 0ms;
+  transition: 300ms ease-out 0ms;
 }
 
 nav a:hover {
