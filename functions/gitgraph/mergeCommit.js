@@ -4,7 +4,7 @@ const firstMergeCommit = () => {
   const firstMergeCommitDiv = document.getElementById("merge_commit_graph");
   const gitgraph = GitgraphJS.createGitgraph(firstMergeCommitDiv, globalOptions);
 
-  const main = gitgraph.branch("main/header");
+  const main = gitgraph.branch("main/feat");
   main.commit("init");
 };
 
@@ -16,8 +16,6 @@ const secondMergeCommit = () => {
   main.commit("init");
   const feature = gitgraph.branch("feat");
   feature.commit("add title");
-  feature.commit("init");
-
 };
 
 const thirdMergeCommit = () => {
