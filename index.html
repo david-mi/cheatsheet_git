@@ -709,22 +709,22 @@
     <section id="infos">
       <h2>MORE</h2>
       <article>
-        <h3>Fast forward Merge</h3>
+        <h3>FAST FORWARD MERGE</h3>
         <div class="graph" id="fast_forward_graph"></div>
       </article>
 
       <article>
-        <h3>Merge commit</h3>
+        <h3>MERGE COMMIT</h3>
         <div class="graph" id="merge_commit_graph"></div>
       </article>
 
       <article>
-        <h3>Rebase</h3>
+        <h3>REBASE</h3>
         <div class="graph" id="rebase_graph"></div>
       </article>
 
       <article class="text" id="undo_commits">
-        <h3>Revenir en arrière de plusieurs commits</h3>
+        <h3>ANNULER PLUSIEURS COMMITS</h3>
         <pre>
           Si les commits en question n'ont pas été push sur un repo distant où des personnes travaillent potentiellement dessus, la solution la plus simple serait un <code>git reset &lt;commit-cibl&eacute;&gt;</code>. Dans le cas inverse, il y aurait 2 autres options qui permettraient de garder l'historique intact :
   
@@ -745,7 +745,7 @@
       </article>
 
       <article class="text" id="link_branchs">
-        <h3>Lier une branche locale et distante</h3>
+        <h3>LIAISON BRANCHE LOCALE/DISTANTE</h3>
         <pre>
           Si on vient de cloner ou fetch un repo distant, les branches distantes seront répertoriées en faisant <code>git branch -r</code> mais aucune branche locale correspondante seront liées à celles-ci.
           Pour éviter de créer une branche nous-même et rentrer une nouvelle commande pour faire la liaison local->distant, on peut simplement effectuer un <code>git switch &lt;nom-branche-distante&gt;</code>  ce qui aura pour effet de créer une branche ayant de meme nom que celle distante et en même temps établir le suivi (fonctionne aussi avec checkout). Cela revient à effectuer un <code>git switch -c &lt;branch&gt; --track &lt;remote&gt;/&lt;branch&gt;&lt;/branch&gt;</code>.
@@ -753,7 +753,7 @@
       </article>
 
       <article class="text" id="link_branchs">
-        <h3>Gérer les push forcés</h3>
+        <h3>GÉRER LES PUSHS FORCÉS</h3>
         <pre>
           Lors d'une tentative de push, si la branche distante n'est pas en mesure de faire un fast-forward pour rattraper notre commit, on aura un message d'erreur. Dans une majorité des cas ça sera car un ou plusieurs commits ont été effectués sur cette branche distante et qu'on ne les possède pas. Il suffira donc de faire un <code>git pull</code>, qui aura pour effet de télécharger les mises à jour, et d'effectuer un merge (ou un rebase si on rajoute <code>--rebase</code>). suite à ça nous pourront effectuer le push.
 
