@@ -176,7 +176,7 @@ td:nth-child(1) * {
 }
 
 td:nth-child(1) code {
-  width: 25rem;
+  min-width: 25rem;
   background-color: var(--clr-main);
 
 }
@@ -320,6 +320,7 @@ article h3 {
 
   td:nth-child(1) code {
     flex: 1;
+    min-width: 0;
   }
 
   .graph {
@@ -350,7 +351,7 @@ article h3 {
   }
 
   main {
-    padding: 0;
+    padding-inline: 5px;
     margin: 0;
   }
 
