@@ -5,6 +5,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style-position: inside;
 }
 
 html {
@@ -165,7 +166,7 @@ td:nth-child(1) code {
 
 }
 
-td:nth-child(2) code {
+code:not(td:nth-child(1) code) {
   background-color: var(--clr-secondary);
   padding: 2px;
 }
@@ -207,6 +208,12 @@ td:nth-child(2) {
 
 pre {
   white-space: pre-line;
+}
+
+.text pre {
+  padding: 10px;
+  background-color: var(--clr-main-lighter);
+  font-size: 1.2rem;
 }
 
 @keyframes showCopied {
