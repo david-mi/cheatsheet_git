@@ -11,12 +11,23 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
+/* :root {
   --clr-main: rgb(255, 212, 94);
   --clr-main-lighter: rgba(255, 212, 94, 0.2);
+  --clr-secondary: #BFD7EA;
+  --width-nav: 11rem;
+  --font-size-nav: 1.4rem;
+} */
+
+:root {
+  --clr-main: #FFBF46;
+  --clr-main-lighter: #D9FFF5;
+  --clr-secondary: #B9F5D8;
+  --clr-tertiary: #131200;
   --width-nav: 11rem;
   --font-size-nav: 1.4rem;
 }
+
 
 header .main__title {
   font-size: 2.5rem;
@@ -50,7 +61,7 @@ nav a {
 nav a::before {
   position: absolute;
   content: "";
-  background-color: black;
+  background-color: var(--clr-tertiary);
   inset: 0;
   left: -50px;
   z-index: -1;
@@ -103,7 +114,7 @@ section {
 }
 
 h2 {
-  background-color: black;
+  background-color: var(--clr-tertiary);
   color: white;
   width: 100%;
   text-align: center;
@@ -133,6 +144,8 @@ tr {
 
 td {
   font-size: 1.2rem;
+  border: 0;
+  border-collapse: collapse;
 }
 
 td:nth-child(1) {
@@ -150,6 +163,11 @@ td:nth-child(1) code {
   width: 25rem;
   background-color: var(--clr-main);
 
+}
+
+td:nth-child(2) code {
+  background-color: var(--clr-secondary);
+  padding: 2px;
 }
 
 td:nth-child(2) {
