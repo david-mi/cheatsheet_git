@@ -385,7 +385,17 @@
             <td><code>git rebase &lt;branche&gt;</code></td>
             <td>
               <pre>
-              <b>Va prendre les commits de notre branche n’étant pas présent dans la branche visée et va les réappliquer à partir du dernier commit de celle-ci.</b>
+              <b>Va prendre les commits de notre branche n’étant pas présent dans la branche visée, les ré-appliquer sur celle-ci, à partir de son dernier commit.</b>
+              Voir schéma : <a href="#rebase_graph">Schemas REBASE</a>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git rebase -i &lt;<ref>&gt;</code></td>
+            <td>
+              <pre>
+              <b>Va rebaser les commits de notre branche en fonction de la référence spécifiée</b>
             </pre>
             </td>
           </tr>
@@ -700,17 +710,17 @@
       <h2>+</h2>
       <article>
         <h3>Fast forward Merge</h3>
-        <div id="fast_forward_graph"></div>
+        <div class="graph" id="fast_forward_graph"></div>
       </article>
 
       <article>
         <h3>Merge commit</h3>
-        <div id="merge_commit_graph"></div>
+        <div class="graph" id="merge_commit_graph"></div>
       </article>
 
       <article>
         <h3>Rebase</h3>
-        <div id="rebase_graph"></div>
+        <div class="graph" id="rebase_graph"></div>
       </article>
     </section>
     <section id="undo_commits">
