@@ -38,6 +38,7 @@
     <a href="#stash">#STASH</a>
     <a href="#switch">#SWITCH</a>
     <a href="#tag">#TAG</a>
+    <a href="#others">#AUTRES</a>
     <a href="#infos">#PLUS</a>
   </nav>
 
@@ -83,6 +84,8 @@
             <td>
               <pre>
               <b>Lister les branches locales.</b>
+
+              Pour avoir plus d'informations (le dernier commit, branche distante liée, label du dépôt distant etc...) rajouter <code>-v</code>.
             </pre>
             </td>
           </tr>
@@ -134,7 +137,6 @@
             </pre>
             </td>
           </tr>
-
         </tbody>
       </table>
 
@@ -168,26 +170,14 @@
 
         <tbody>
           <tr>
-            <td><code>git checkout &lt;commit-hash&gt;</code></td>
+            <td><code>git checkout &lt;ref&gt;</code></td>
             <td>
               <pre>
-                <b>Détacher HEAD et se placer le commit spécifié.</b>
+                <b>Détacher HEAD et se placer sur le commit référencé.</b>
               </pre>
             </td>
           </tr>
-
-
         <tbody>
-          <tr>
-            <td><code>git checkout &lt;tag&gt;</code></td>
-            <td>
-              <pre>
-                <b>Détacher HEAD et se placer sur le commit ayant le tag spécifié.</b>
-              </pre>
-            </td>
-          </tr>
-
-
       </table>
 
       <table id="commit">
@@ -284,25 +274,13 @@
           </tr>
 
           <tr>
-            <td><code>git diff &lt;commit1&gt; &lt;commit2&gt;</code></td>
+            <td><code>git diff &lt;ref-1&gt; &lt;ref-2&gt;</code></td>
             <td>
               <pre>
-              <b>Voir les modifications entre 2 commits.</b>
+              <b>Voir les modifications entre 2 commits reférencés.</b>
 
-              Possibilité de ne citer qu'un seul commit, ce qui fera une comparaison entre HEAD et celui-ci. 
+              Possibilité de ne référencer qu'un seul commit, ce qui fera une comparaison entre HEAD et celui-ci. 
               Exemple, <code>git diff HEAD~1</code>. 
-            </pre>
-            </td>
-          </tr>
-
-
-          <tr>
-            <td><code>git diff &lt;tag-b&gt; &lt;tag-a&gt;</code></td>
-            <td>
-              <pre>
-              <b>Voir les modifications entre 2 tags</b>
-
-              Mêmes fonctionnalités qu'avec les commits sauf qu'on va les référencer en utilisant leur tag.
             </pre>
             </td>
           </tr>
@@ -363,12 +341,12 @@
           </tr>
 
           <tr>
-            <td><code>git log &lt;commit-b&gt;..&lt;commit-a&gt;</code></td>
+            <td><code>git log &lt;ref-b&gt; &lt;ref-a&gt;</code></td>
             <td>
               <pre>
-              <b>Affiche le log des commits sur la plage donnée.</b>
+              <b>Affiche le log des commits référencés sur l'intervalle donné.</b>
 
-              Préciser le commit le plus ancien des 2 en premier.
+              Préciser le commit le plus ancien des 2 en premier pour avoir un affichage plus cohérent
             </pre>
             </td>
           </tr>
@@ -440,7 +418,7 @@
             <td><code>git rebase -i &lt;ref&gt;</code></td>
             <td>
               <pre>
-              <b>Va rebaser les commits de notre branche en fonction de la référence spécifiée</b>
+              <b>Va rebaser les commits de notre branche à partir de la référence spécifiée</b>
             </pre>
             </td>
           </tr>
@@ -532,9 +510,9 @@
             <td><code>git reset &lt;commit&gt;</code></td>
             <td>
               <pre>
-              <b>Déplacer HEAD sur un ancien commit en en préservant les modifications effectuées dans le répertoire de travail.</b>
+              <b>Déplacer HEAD sur une référence en en préservant les modifications effectuées (stage ou non) dans le répertoire de travail.</b>
 
-              Si on ne veut pas conserver les modifications, rajouter <code>--hard</code>.
+              Si on ne veut pas conserver les modifications, rajouter <code>--hard</code>. Cependant les fichiers non suivis ne seront pas supprimés.
             </pre>
             </td>
           </tr>
@@ -753,6 +731,83 @@
                 Exemple: <code>git tag -l "16*"</code> Va récupérer tous les tags commençants par 16.
                 
                 Plus d'infos sur les patterns: <a href="https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm">tldp.org</a> 
+              </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag &lt;tag&gt;</code></td>
+            <td>
+              <pre>
+                <b>Créer un tag léger référençant HEAD.</b>
+
+                Un tag léger représente un tag comportant seulement un nom.
+                </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag -a &lt;tag&gt;</code></td>
+            <td>
+              <pre>
+                <b>Créer un tag annoté référençant HEAD.</b>
+
+                Un tag annoté contiendra en plus du nom un message, la date de création et les informations de l'auteur.
+                Ces informations seront visible via un <code>git show &lt;tag&gt;</code>.
+
+                Une fois la commande rentré, une nouvelle fenêtre s'ouvrira pour nous inviter à saisir un message. 
+                
+                Si on veut directement saisir le message sans passer par cette étape, faire <code>git tag -a &lt;tag&gt; -m "&lt;message&gt;"</code>
+                </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag &lt;tag&gt; &lt;ref&gt;</code></td>
+            <td>
+              <pre>
+                <b>Créer un tag sur la référence spécifiée.</b>
+
+                Reprends le même principe que les commandes au dessus, mais pour une autre référence que HEAD.
+
+                On peut toujours rajouter des options.
+                Exemple: <code>git tag -a v2.0.0 099ff3s "second major release"</code> 
+                </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag -f &lt;tag-existant&gt;</code></td>
+            <td>
+              <pre>
+                <b>Remplacer un tag existant.</b>
+
+                Si on veut également référencer un autre commit, préciser &lt;ref&gt;
+              </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">
+              <h2 id="others">AUTRES</h2>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git clean -f -d</code></td>
+            <td>
+              <pre>
+                <b>Nettoyer les fichiers et dossiers non suivis. </b>
+
+                Par défaut si on ne passe aucun argument, la commande refusera de s'éxécuter.
+
+                Pour lister les fichiers qui seront supprimés sans passer à l'action, remplacer <code>-f</code> par <code>-n</code>
               </pre>
             </td>
           </tr>
