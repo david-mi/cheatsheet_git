@@ -730,27 +730,6 @@
         <div class="graph" id="rebase_graph"></div>
       </article>
 
-      <!-- <article class="text" id="undo_commits">
-        <h3>ANNULER PLUSIEURS COMMITS</h3>
-        <pre>
-          Si les commits en question n'ont pas été push sur un repo distant où des personnes travaillent potentiellement dessus, la solution la plus simple serait un <code>git reset &lt;commit-cibl&eacute;&gt;</code>. Dans le cas inverse, il y aurait 2 autres options qui permettraient de garder l'historique intact :
-  
-          Faire un <code>git revert &lt;dernier-commit-ciblé&gt; &lt;premier-commit-cibl&eacute;&gt;</code>, qui ferait dans l'ordre :
-          <ul>
-            <li>Annuler les changements induits par le dernier commit ciblé (sans le supprimer), et faire un nouveau commit.</li>
-            <li>refaire la même chose mais pour les commits ciblés suivants (du dernier au premier).</li>
-            <li>Les inconvénients seraient qu'il' faudrait rajouter un commit supplémentaire par commit ciblé, ce qui peut vite alourdir l'historique.<br> 
-              On peut rajouter <code>--no-commit</code> pour seulement avoir à faire un commit nous-même après les actions.
-            </li>
-          </ul>
-          
-          Faire un git restore &lt;commit-cibl&eacute;&gt;.
-          <ul>
-            <li>Cela a pour avantage de le pas cr&eacute;er de potentiels conflits et ne va pas g&eacute;n&eacute;rer plusieurs commits.</li>
-          </ul>
-        </pre>
-      </article> -->
-
       <article class="text" id="link_branchs">
         <h3>LIAISON BRANCHE LOCALE/DISTANTE</h3>
         <pre>
