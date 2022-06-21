@@ -209,16 +209,18 @@ td:nth-child(2) {
 
 .copyBtn:hover {
   cursor: pointer;
-  background-color: var(--clr-secondary);
+  background-color: var(--clr-main);
 }
 
 .copyBtn:hover svg {
   color: black;
+  transform: scale(1);
 }
 
 .copyBtn svg {
   color: white;
   transition: 400ms;
+  transform: scale(0.9)
 }
 
 pre {
