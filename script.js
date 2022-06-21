@@ -1,5 +1,5 @@
 import { fastForwardMerge, mergeCommit, rebase } from './functions/gitgraph/index.js';
-import { addCopyToClipBoardButtons, putListenerOnLinks } from "./functions/index.js";
+import { addCopyToClipBoardButtons, putListenerOnLinks, swipeHandle } from "./functions/index.js";
 
 
 addCopyToClipBoardButtons();
@@ -9,4 +9,5 @@ putListenerOnLinks();
 fastForwardMerge();
 mergeCommit();
 rebase();
+swipeHandle();
 

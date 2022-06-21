@@ -340,6 +340,45 @@ article h3 {
 
 }
 
+@keyframes navSlideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes navSlideOut {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes addBlur {
+  from {
+    filter: saturate(100%);
+  }
+
+  to {
+    filter: saturate(0);
+  }
+}
+
+@keyframes removeBlur {
+  from {
+    filter: saturate(0);
+  }
+
+  to {
+    filter: saturate(100%);
+  }
+}
 
 @media screen and (max-width: 700px) {
 
@@ -348,12 +387,39 @@ article h3 {
   }
 
   nav {
-    display: none;
+    transform: translateX(-100%);
+    width: auto;
+  }
+
+  nav a {
+    font-size: 1.7rem;
+    color: black;
+  }
+
+  nav a:hover,
+  .clicked__anchor {
+    font-size: 2rem;
+  }
+
+  .nav__slidein {
+    animation: 400ms navSlideIn forwards;
+  }
+
+  .nav__slideout {
+    animation: 400ms navSlideOut forwards;
   }
 
   main {
     padding-inline: 5px;
     margin: 0;
+  }
+
+  .addBlur {
+    animation: addBlur 400ms forwards;
+  }
+
+  .removeBlur {
+    animation: removeBlur 400ms forwards;
   }
 
   tr,
