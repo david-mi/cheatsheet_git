@@ -101,7 +101,7 @@
             <td>
               <pre>
             <b>Lister les branches locales et distantes.</b>
-          </pre>
+            </pre>
             </td>
           </tr>
 
@@ -164,6 +164,28 @@
             </td>
           </tr>
         </tbody>
+
+
+        <tbody>
+          <tr>
+            <td><code>git checkout &lt;commit-hash&gt;</code></td>
+            <td>
+              <pre>
+                <b>Détacher HEAD et se placer le commit spécifié.</b>
+              </pre>
+            </td>
+          </tr>
+
+
+        <tbody>
+          <tr>
+            <td><code>git checkout &lt;tag&gt;</code></td>
+            <td>
+              <pre>
+                <b>Détacher HEAD et se placer sur le commit ayant le tag spécifié.</b>
+              </pre>
+            </td>
+          </tr>
 
 
       </table>
@@ -269,6 +291,18 @@
 
               Possibilité de ne citer qu'un seul commit, ce qui fera une comparaison entre HEAD et celui-ci. 
               Exemple, <code>git diff HEAD~1</code>. 
+            </pre>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td><code>git diff &lt;tag-b&gt; &lt;tag-a&gt;</code></td>
+            <td>
+              <pre>
+              <b>Voir les modifications entre 2 tags</b>
+
+              Mêmes fonctionnalités qu'avec les commits sauf qu'on va les référencer en utilisant leur tag.
             </pre>
             </td>
           </tr>
@@ -702,11 +736,24 @@
 
         <tbody>
           <tr>
-            <td><code></code></td>
+            <td><code>git tag</code></td>
             <td>
               <pre>
-              <b></b>
-            </pre>
+                <b>Lister les tags.</b>
+                </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag -l "&lt;pattern&gt;"</code></td>
+            <td>
+              <pre>
+                <b>Lister les tags selon un pattern donné.</b>
+
+                Exemple: <code>git tag -l "16*"</code> Va récupérer tous les tags commençants par 16.
+                
+                Plus d'infos sur les patterns: <a href="https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm">tldp.org</a> 
+              </pre>
             </td>
           </tr>
         </tbody>
