@@ -73,9 +73,7 @@
       <table id="branch">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>BRANCH</h2>
-            </th>
+            <th colspan="2">BRANCH</th>
           </tr>
         </thead>
 
@@ -143,9 +141,7 @@
       <table id="checkout">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>CHECKOUT</h2>
-            </th>
+            <th colspan="2">CHECKOUT
           </tr>
 
         <tbody>
@@ -175,9 +171,7 @@
       <table id="commit">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>COMMIT</h2>
-            </th>
+            <th colspan="2">COMMIT</th>
           </tr>
         </thead>
 
@@ -210,9 +204,7 @@
       <table id="diff">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>DIFF</h2>
-            </th>
+            <th colspan="2">DIFF</th>
           </tr>
         </thead>
 
@@ -286,9 +278,7 @@
       <table id="log">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>LOG</h2>
-            </th>
+            <th colspan="2">LOG</th>
           </tr>
         </thead>
 
@@ -354,9 +344,7 @@
       <table id="push">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>PUSH</h2>
-            </th>
+            <th colspan="2">PUSH</th>
           </tr>
         </thead>
 
@@ -398,9 +386,7 @@
       <table id="rebase">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>REBASE</h2>
-            </th>
+            <th colspan="2">REBASE</th>
           </tr>
         </thead>
 
@@ -430,9 +416,7 @@
       <table id="reflog">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>REFLOG</h2>
-            </th>
+            <th colspan="2">REFLOG</th>
           </tr>
         </thead>
 
@@ -451,9 +435,7 @@
       <table id="remote">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>REMOTE</h2>
-            </th>
+            <th colspan="2">REMOTE</th>
           </tr>
         </thead>
 
@@ -485,7 +467,7 @@
           </tr>
 
           <tr>
-            <td><code>git remote rename &lt;label&gt; &lt;new-label&gt;</new-label></code></td>
+            <td><code>git remote rename &lt;label&gt; &lt;new-label&gt;</code></td>
             <td>
               <pre>
               <b>Renommer l'ancien label par le nouveau.</b>
@@ -507,9 +489,7 @@
       <table id="reset">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>RESET</h2>
-            </th>
+            <th colspan="2">RESET</th>
           </tr>
         </thead>
 
@@ -530,9 +510,7 @@
       <table id="restore">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>RESTORE</h2>
-            </th>
+            <th colspan="2">RESTORE</th>
           </tr>
         </thead>
 
@@ -571,9 +549,7 @@
       <table id="revert">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>REVERT</h2>
-            </th>
+            <th colspan="2">REVERT</th>
           </tr>
         </thead>
 
@@ -603,9 +579,7 @@
       <table id="stash">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>STASH</h2>
-            </th>
+            <th colspan="2">STASH</th>
           </tr>
         </thead>
 
@@ -685,9 +659,7 @@
       <table id="switch">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>SWITCH</h2>
-            </th>
+            <th colspan="2">SWITCH</th>
           </tr>
         </thead>
 
@@ -724,8 +696,7 @@
       <table id="tag">
         <thead>
           <tr>
-            <th colspan="2">
-              <h2>TAG</h2>
+            <th colspan="2">TAG</h2>
             </th>
           </tr>
         </thead>
@@ -789,7 +760,7 @@
         </pre>
       </article>
 
-      <article class="text" id="link_branchs">
+      <article class="text" id="forced_pushs">
         <h3>GÉRER LES PUSHS FORCÉS</h3>
         <pre>
           Lors d'une tentative de push, si la branche distante n'est pas en mesure de faire un fast-forward pour rattraper notre commit, on aura un message d'erreur. Dans une majorité des cas ça sera car un ou plusieurs commits ont été effectués sur celle-ci et qu'on ne les possède pas en local. Il suffira donc de faire un <code>git pull</code>, qui aura pour effet de télécharger les mises à jour, et d'effectuer un merge (ou un rebase si on rajoute <code>--rebase</code>). Ensuite nous pourrons push.
