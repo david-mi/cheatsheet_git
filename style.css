@@ -124,7 +124,8 @@ section {
   width: 100%;
 }
 
-th {
+th,
+h2 {
   background-color: var(--clr-tertiary);
   color: white;
   width: 100%;
