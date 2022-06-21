@@ -30,7 +30,7 @@ html {
   --clr-tertiary: #131200;
   --width-nav: 11rem;
   --font-size-nav: 1.4rem;
-  --box-shadow: 0 0 2px rgb(138, 138, 138);
+  --box-shadow: 0 0 3px rgb(138, 138, 138);
 }
 
 a {
@@ -224,9 +224,10 @@ pre {
 }
 
 .text pre {
-  padding: 10px;
+  padding: 0 40px 40px 40px;
   background-color: white;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
 }
 
 pre code {
@@ -266,20 +267,18 @@ pre code {
   transform-origin: top right;
 }
 
-#infos h2:first-child {
-  margin-bottom: -52px;
-}
-
 article {
   width: 100%;
   box-shadow: var(--box-shadow);
+  border-radius: 15px;
 }
 
 article h3 {
 
+  border-radius: 15px 15px 0 0;
   background-color: white;
   text-align: center;
-  padding: 20px 0 30px 0;
+  padding: 30px 40px 40px 40px;
   font-size: 1.3rem;
 }
 
@@ -289,6 +288,7 @@ article h3 {
   justify-content: space-between;
   align-items: flex-end;
   min-height: 224px;
+  border-radius: 0px 0px 15px 15px;
 }
 
 .graph::before {
@@ -358,6 +358,15 @@ article h3 {
   tr,
   td {
     border: none;
+  }
+
+  .text pre {
+    padding: 0 20px 20px 20px;
+  }
+
+  article h3 {
+
+    padding: 30px 20px 40px 20px;
   }
 }
 
