@@ -116,6 +116,7 @@
             <td>
               <pre>
               <b> Supprimer la branche locale.</b>
+
               Se positionner en dehors de celle-ci avant d'entrer la commande.
               Pour forcer la suppression, remplacer <code>-d</code> par <code>-D</code>. Ca sera nécessaire si la branche n'a pas été mergée.
             </pre>
@@ -181,6 +182,7 @@
             <td>
               <pre>
               <b>Stage et commit tous les fichiers modifiés.</b>
+
               <code>-a</code> va stage seulement les fichiers suivis. Il ne remplace pas un git <code>add . </code> qui prendra aussi les nouveaux fichiers en compte.
             </pre>
             </td>
@@ -191,6 +193,7 @@
             <td>
               <pre>
               <b>Remplace le précédent commit.</b>
+
               Le nouveau commit contiendra ce qu’on vient de stage et sera couplé à l’ancien commit. Cela recrée un nouveau commit et retire l’ancien. Si on veut changer le nom du commit, on peut rajouter <code>-m "&lt;message&gt;"</code>. 
               Au contraire, si on veut juste ajouter des changements en gardant l'ancien message, on peut ajouter <code>--no-edit</code>. Il est possible de changer le nom du commit seulement sans stage quoi que ce soit.
             </pre>
@@ -214,6 +217,7 @@
             <td>
               <pre>
               <b>Voir les modifications dans les fichiers suivi non stage et HEAD.</b>
+
               Possibilité de rajouter l'argument <code>-w</code> pour ignorer les espaces.
             </pre>
             </td>
@@ -233,6 +237,7 @@
             <td>
               <pre>
               <b>Voir les modifications entre les modifications stage et HEAD</b>
+
               Autre notation : <code>git diff --cached</code>
             </pre>
             </td>
@@ -252,6 +257,7 @@
             <td>
               <pre>
               <b>Voir les modifications dans une plage de branches (sur leur dernier commmit respectif).</b>
+
               Possibilité de faire la comparaison seulement sur certains fichiers en rajoutant leurs noms à la suite.
               Autre notation : <code>git diff &lt;branche1&gt;..&lt;branche2&gt;</code>
             </pre>
@@ -263,6 +269,7 @@
             <td>
               <pre>
               <b>Voir les modifications entre 2 commits.</b>
+
               Possibilité de ne citer qu'un seul commit, ce qui fera une comparaison entre HEAD et celui-ci. 
               Exemple, <code>git diff HEAD~1</code>. 
             </pre>
@@ -331,6 +338,7 @@
             <td>
               <pre>
               <b>Affiche le log des commits sur la plage donnée.</b>
+
               Préciser le commit le plus ancien des 2 en premier.
             </pre>
             </td>
@@ -353,8 +361,18 @@
             <td>
               <pre>
               <b>Envoyer les modifications de la branche locale vers la branche distante.</b>
-              Si les 2 branches ne sont pas liées, rajouter l'argument <code>-u</code>. Si le label du dépôt distant est nommé <b>origin</b> et que les branches locales et distantes sont liées, on peut juste écrire <code>git push</code>. Quand on renseigne ni le label, ni la branche,  git utilisera <b>origin</b> comme label, et il pointera la branche distante qui à le même nom que la branche locale.
-              Si on ajoute l'argument <code>-f</code> cela aura pour effet d'écraser l'historique de la branche distante par celui en local. Une alternative plus douce est <code>--force-with-lease</code> qui fera le push seulement si la branche distante n'a pas été mise à jour entre temps. Plus d'infos dans cette partie : <a href="#infos">#INFOS</a>
+
+              Si les 2 branches ne sont pas liées, rajouter l'argument <code>-u</code>. 
+
+              Si le label du dépôt distant est nommé <b>origin</b> et que les branches locales et distantes sont liées, on peut juste écrire <code>git push</code>. 
+
+              Quand on renseigne ni le label, ni la branche,  git utilisera <b>origin</b> comme label, et il pointera la branche distante qui à le même nom que la branche locale.
+
+              Si on ajoute l'argument <code>-f</code> cela aura pour effet d'écraser l'historique de la branche distante par celui en local. 
+              
+              Une alternative plus douce est <code>--force-with-lease</code> qui fera le push seulement si la branche distante n'a pas été mise à jour entre temps. 
+              
+              Plus d'infos dans cette partie : <a href="#infos">#INFOS</a>
             </pre>
             </td>
           </tr>
@@ -364,6 +382,7 @@
             <td>
               <pre>
                 <b>Supprimer la branche sur un dépot distant.</b>
+
                 <code>-d</code> peut aussi être noté <code>--delete</code>.
               </pre>
             </td>
@@ -386,6 +405,7 @@
             <td>
               <pre>
               <b>Va prendre les commits de notre branche n’étant pas présent dans la branche visée et les ré-appliquer sur celle-ci au plus haut point.</b>
+
               Voir schéma : <a href="#rebase_graph">Schemas REBASE</a>
             </pre>
             </td>
@@ -438,6 +458,7 @@
             <td>
               <pre>
               <b>Voir les labels des dépots distants liés à notre dépot local.</b>
+
               Pour aussi voir les url, rajouter <code>-v</code>.
             </pre>
             </td>
@@ -448,7 +469,11 @@
             <td>
               <pre>
               <b>Lier un dépot distant avec un dépot local.</b>
-              La plupart du temps <b>origin</b> sera utilisé comme label. On pourrait utiliser n'importe quel nom à la place mais c'est une convention. Quand on clone un repository distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement.
+
+              La plupart du temps <b>origin</b> sera utilisé comme label. On pourrait utiliser n'importe quel nom à la place mais c'est une convention.
+
+              Quand on clone un repository distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement.
+              
               Si on a pas les droits sur le dépôt distant, la convention est de nommer le label <b>upstream</b>.
               </pre>
             </td>
@@ -489,6 +514,7 @@
             <td>
               <pre>
               <b>Déplacer HEAD sur un ancien commit en en préservant les modifications effectuées dans le répertoire de travail.</b>
+
               Si on ne veut pas conserver les modifications, rajouter <code>--hard</code>.
             </pre>
             </td>
@@ -520,6 +546,7 @@
             <td>
               <pre>
               <b>Restaurer le contenu d'un ou plusieurs fichier dans le répertoire de travail en fonction de du commit spécifié.</b>
+
               N'altère pas les anciens commits.
             </pre>
             </td>
@@ -560,6 +587,7 @@
             <td>
               <pre>
               <b>Même procédure mais va répéter la même opération sur tous les autres commits ciblés. et fera un nouveau commit à chaque fois.</b>
+
               Pour ne pas commit les modifications, rajouter <code>--no-commit</code>
             </pre>
             </td>
@@ -582,6 +610,7 @@
             <td>
               <pre>
               <b>Retirer les modifications effectuées sur les fichiers suivis et les ajoute au stash.</b>
+
               Pour ajouter les fichiers non suivis au stash, rajouter <code>-u</code>.
               Pour rajouter un nom à la sauvegarde, rajouter <code>-m "&lt;nom&gt;"</code>
             </pre>
@@ -602,6 +631,7 @@
             <td>
               <pre>
               <b>Appliquer le contenu de la dernière sauvegarde présente dans le stash sur notre répertoire de travail.</b>
+
               La sauvegarde sera ensuite supprimée du stash.
             </pre>
             </td>
@@ -639,6 +669,7 @@
             <td>
               <pre>
               <b>Affiche les modifications de fichier induites dans une sauvegarde.</b>
+
               Pour afficher un diff, rajouter <code>-p</code>. Si on ne renseigne pas de numéro, la dernière sauvegarde sera choisie.
             </pre>
             </td>

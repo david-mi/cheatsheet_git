@@ -25,12 +25,12 @@ html {
 :root {
   --clr-main: #FFBF46;
   --clr-main-lighter: #ffed8a57;
-  --clr-secondary: #cecece;
+  --clr-secondary: #f0f0f0;
   /* --clr-main-lighter: #D9FFF5; */
   --clr-tertiary: #131200;
   --width-nav: 11rem;
   --font-size-nav: 1.4rem;
-  --box-shadow: 0 0 3px rgb(138, 138, 138);
+  --box-shadow: 0 0 3px rgb(148, 148, 148);
 }
 
 a {
@@ -183,7 +183,7 @@ td:nth-child(1) code {
 
 code:not(td:nth-child(1) code) {
   background-color: var(--clr-secondary);
-  padding: 2px;
+  padding-inline: 5px;
 }
 
 td:nth-child(2) {
@@ -193,6 +193,8 @@ td:nth-child(2) {
   padding: 10px;
   display: flex;
   align-items: center;
+  font-size: 1.2rem;
+  line-height: 1.2;
 }
 
 .copyBtn {
@@ -230,8 +232,8 @@ pre {
   line-height: 1.4;
 }
 
-pre code {
-  font-weight: normal;
+pre b {
+  margin-bottom: 200px;
 }
 
 @keyframes showCopied {
