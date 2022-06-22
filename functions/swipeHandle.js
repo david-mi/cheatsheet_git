@@ -35,11 +35,11 @@ const swipeHandle = () => {
     const { pageX } = changedTouches[0];
     const calcDiff = pageX - touchInitPosition;
 
-    if (calcDiff > 75) {
+    if (calcDiff > 150) {
       showNavBar();
     }
 
-    if (calcDiff < -75) {
+    if (calcDiff < -50) {
       removeNavBar();
     }
   });
