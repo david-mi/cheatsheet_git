@@ -277,6 +277,7 @@ article {
   width: 100%;
   box-shadow: var(--box-shadow);
   border-radius: 15px;
+  overflow: hidden;
 }
 
 article h3 {
@@ -303,6 +304,15 @@ article h3 {
   inset: 0;
   background-color: white;
   z-index: -1;
+}
+
+#navigate_HEAD {
+  background-color: #282C34;
+}
+
+#navigate_HEAD img {
+  max-width: 600px;
+  margin: auto;
 }
 
 @media screen and (max-width: 1300px) {
