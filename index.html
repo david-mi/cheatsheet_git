@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:url" content="https://david-mi.github.io/cheatsheet_git/" />
+  <meta property="og:title" content="Cheat cheet Git" />
+  <meta property="og:description"
+    content="Cheat sheet sur les principales commandes git ainsi que quelques concepts." />
+  <meta property=" og:image" content="https://i.imgur.com/fT2zJr4.png" />
+  <script src="https://cdn.jsdelivr.net/npm/@gitgraph/js"></script>
+  <link rel="icon" type="image/x-icon" href="./public/favicon.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Cheat sheet Git</title>
+</head>
+
+<body>
+
+  <div class="confirmCopy"></div>
+
+  <header>
+    <h1 class="main__title">Cheat cheet Git & Github</h1>
+  </header>
+  <nav>
+    <a href="#branch">#BRANCH</a>
+    <a href="#checkout">#CHECKOUT</a>
+    <a href="#commit">#COMMIT</a>
+    <a href="#diff">#DIFF</a>
+    <a href="#log">#LOG</a>
+    <a href="#push">#PUSH</a>
+    <a href="#rebase">#REBASE</a>
+    <a href="#reflog">#REFLOG</a>
+    <a href="#remote">#REMOTE</a>
+    <a href="#reset">#RESET</a>
+    <a href="#restore">#RESTORE</a>
+    <a href="#revert">#REVERT</a>
+    <a href="#stash">#STASH</a>
+    <a href="#switch">#SWITCH</a>
+    <a href="#tag">#TAG</a>
+    <a href="#others">#AUTRES</a>
+    <a href="#infos">#PLUS</a>
+  </nav>
+
+  <!-- 
+
+  &lt;branche&gt;
+
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2></h2>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <pre>
+            <b></b>
+          </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+-->
+  <main>
+
+    <section>
+      <table id="branch">
+        <thead>
+          <tr>
+            <th colspan="2">BRANCH</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git branch</code></td>
+            <td>
+              <pre>
+              <b>Lister les branches locales.</b>
+
+              Pour avoir plus d'informations (le dernier commit, branche distante liée, label du dépôt distant etc...) rajouter <code>-vv</code>.
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git branch -r</code></td>
+            <td>
+              <pre>
+              <b>Lister les branches distantes.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git branch -a</code></td>
+            <td>
+              <pre>
+            <b>Lister les branches locales et distantes.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git branch &lt;branche&gt;</code></td>
+            <td>
+              <pre>
+              <b>Créer une nouvelle branche.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git branch -d &lt;branche&gt;</code></td>
+            <td>
+              <pre>
+              <b>Supprimer la branche localement.</b>
+
+              Se positionner en dehors de celle-ci avant d'entrer la commande.
+              Pour forcer la suppression, remplacer <code>-d</code> par <code>-D</code>. Ca sera nécessaire si la branche n'a pas été mergée.
+
+                Pour supprimer une branche sur un dépôt distant, voir dans la partie <a href="#delete_remote_branch">#PUSH</a>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git branch -m</code></td>
+            <td>
+              <pre>
+              <b>Renommer la branche sur laquelle on est positionné.</b>
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="checkout">
+        <thead>
+          <tr>
+            <th colspan="2">CHECKOUT
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git checkout &lt;branche&gt;</code></td>
+            <td>
+              <pre>
+                <b>Changer de branche.</b>
+              </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git checkout -b &lt;branche&gt;</code></td>
+            <td>
+              <pre>
+                <b>Créer une branche et basculer sur celle-ci.</b>
+              </pre>
+            </td>
+          </tr>
+        </tbody>
+
+
+        <tbody>
+          <tr>
+            <td><code>git checkout &lt;ref&gt;</code></td>
+            <td>
+              <pre>
+                <b>Détacher HEAD et se placer sur le commit référencé.</b>
+              </pre>
+            </td>
+          </tr>
+        <tbody>
+      </table>
+
+      <table id="commit">
+        <thead>
+          <tr>
+            <th colspan="2">COMMIT</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git commit -am "&lt;message&gt;"</code></td>
+            <td>
+              <pre>
+              <b>Stage et commit tous les fichiers modifiés.</b>
+
+              <code>-a</code> va stage seulement les fichiers suivis. Il ne remplace pas un git <code>add . </code> qui prendra aussi les nouveaux fichiers en compte.
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git commit --amend</code></td>
+            <td>
+              <pre>
+              <b>Remplace le précédent commit.</b>
+
+              Le nouveau commit contiendra ce qu’on vient de stage et sera couplé à l’ancien commit. Cela recréé un nouveau commit et retire l’ancien. 
+              
+              Si on veut changer le nom du commit, ajouter <code>-m "&lt;message&gt;"</code>. 
+
+              Si on veut juste ajouter des changements en gardant l'ancien message de commit, ajouter <code>--no-edit</code>.
+               
+              Il est aussi possible de changer le nom du commit sans avoir stage de modifications.
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="diff">
+        <thead>
+          <tr>
+            <th colspan="2">DIFF</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git diff</code></td>
+            <td>
+              <pre>
+              <b>Voir les modifications sur les fichiers suivis et pas encore non stage entre le répertoire de travail et HEAD.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git diff --staged</code></td>
+            <td>
+              <pre>
+              <b>Voir les modifications entre les fichiers qui ont été stage et HEAD</b>
+
+              Autre notation : <code>git diff --cached</code>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git diff HEAD</code></td>
+            <td>
+              <pre>
+              <b>Voir les modifications entre les fichiers suivis (stage et non stage) et HEAD.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git diff &lt;fichier1&gt; &lt;fichier2...&gt;</code></td>
+            <td>
+              <pre>
+              <b>Voir les modifications seulement dans les fichiers indiqués.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git diff &lt;branche1&gt; &lt;branche2&gt;</code></td>
+            <td>
+              <pre>
+              <b>Voir les modifications entre 2 branches (sur leur dernier commmit respectif).</b>
+
+              Possibilité de faire la comparaison seulement sur certains fichiers en rajoutant leurs noms à la suite.
+
+              Autre notation : <code>git diff &lt;branche1&gt;..&lt;branche2&gt;</code>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git diff &lt;ref-1&gt; &lt;ref-2&gt;</code></td>
+            <td>
+              <pre>
+              <b>Voir les modifications entre 2 commits reférencés.</b>
+
+              Possibilité de ne référencer qu'un seul commit, ce qui fera une comparaison entre celui-ci et HEAD. 
+
+              Exemple, <code>git diff HEAD~1</code>. 
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="log">
+        <thead>
+          <tr>
+            <th colspan="2">LOG</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git log</code></td>
+            <td>
+              <pre>
+              <b>Afficher un log des commits présents dans notre branche.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git log --all</code></td>
+            <td>
+              <pre>
+              <b>Afficher un log de tous les commits.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git log --oneline</code></td>
+            <td>
+              <pre>
+              <b>Formater l'affichage des logs sur une ligne.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git log --graph</code></td>
+            <td>
+              <pre>
+              <b>Afficher une représentation graphique de l'historique des commits.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git log --&lt;nombre&gt;</code></td>
+            <td>
+              <pre>
+              <b>Limite le nombre de commits affichés.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git log &lt;ref-b&gt; &lt;ref-a&gt;</code></td>
+            <td>
+              <pre>
+              <b>Affiche le log des commits référencés sur l'intervalle donné.</b>
+
+              Préciser le commit le plus ancien des 2 en premier pour un affichage cohérent.
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="push">
+        <thead>
+          <tr>
+            <th colspan="2">PUSH</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git push &lt;label-repo-distant&gt; &lt;branche&gt;</code></td>
+            <td>
+              <pre>
+              <b>Envoyer les modifications de la branche locale vers la branche distante.</b>
+
+              Si les 2 branches ne sont pas liées, rajouter l'argument <code>-u</code>. 
+
+              Si le label du dépôt distant est nommé <b>origin</b> et que les branches locales et distantes sont liées, on peut juste écrire <code>git push</code>. 
+
+              Quand on renseigne ni le label, ni la branche,  git utilisera <b>origin</b> comme label, et il pointera la branche distante qui à le même nom que la branche locale.
+
+              Si on ajoute l'argument <code>-f</code> cela aura pour effet d'écraser l'historique de la branche distante par celui en local. 
+              
+              Une alternative plus douce est <code>--force-with-lease</code> qui fera le push seulement si la branche distante n'a pas été mise à jour entre temps. 
+              
+              Plus d'infos ici : <a href="#forced_pushs">#GÉRER LES PUSHS FORCÉS</a>
+            </pre>
+            </td>
+          </tr>
+
+          <tr id="delete_remote_branch">
+            <td><code>git push &lt;label-repo-distant&gt; -d &lt;branche&gt;</code></td>
+            <td>
+              <pre>
+                <b>Supprimer la branche sur un dépot distant.</b>
+
+                <code>-d</code> peut aussi être noté <code>--delete</code>.
+              </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="rebase">
+        <thead>
+          <tr>
+            <th colspan="2">REBASE</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git rebase &lt;branche&gt;</code></td>
+            <td>
+              <pre>
+              <b>Prendre les commits de notre branche n’étant pas présent dans la branche visée et les ré-appliquer par dessus son dernier commit.</b>
+
+              Voir schéma : <a href="#rebase_graph">#Schemas REBASE</a>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git rebase -i &lt;ref&gt;</code></td>
+            <td>
+              <pre>
+              <b>Rebaser les commits de notre branche en commençant à la référence spécifiée</b>
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="reflog">
+        <thead>
+          <tr>
+            <th colspan="2">REFLOG</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git reflog</code></td>
+            <td>
+              <pre>
+              <b>Afficher l'historique des changements de références pour HEAD.</b>
+                
+              Pour afficher autre chose que l'historique sur HEAD, rajouter <code> &lt;pointeur&gt@{numéro}</code>
+              
+              Exemple:  <code>git reflog main</code> va nous montrer tous les changements de référence pour la branche main.
+              <img src="./public/screenshot_reflog.png" alt="yes">
+              </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="remote">
+        <thead>
+          <tr>
+            <th colspan="2">REMOTE</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git remote</code></td>
+            <td>
+              <pre>
+              <b>Voir les labels des dépots distants liés à notre dépot local.</b>
+
+              Pour aussi voir les url, rajouter <code>-v</code>.
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git remote add &lt;label&gt;&lt;repo-url&gt;</code></td>
+            <td>
+              <pre>
+              <b>Lier un dépot distant avec un dépot local.</b>
+
+              La plupart du temps <b>origin</b> sera utilisé comme label. On peut utiliser n'importe quel nom à la place c'est juste une convention. Git nous facilitera la tâche sur certaines commandes si on met <b>origin</b>.
+
+              Quand on clone un dépôt distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement.
+              
+              Si on a pas les droits sur le dépôt distant, la convention est de nommer le label <b>upstream</b> Lors d'un fork par exemple, pour contribuer à des projets externes.
+              </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git remote rename &lt;label&gt; &lt;new-label&gt;</code></td>
+            <td>
+              <pre>
+              <b>Renommer le label d'un dépôt distant.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git remote remove &lt;label&gt;</code></td>
+            <td>
+              <pre>
+              <b>Supprimer le label d'un dépôt distant et l'url associée.</b>
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="reset">
+        <thead>
+          <tr>
+            <th colspan="2">RESET</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git reset &lt;commit&gt;</code></td>
+            <td>
+              <pre>
+              <b>Déplacer HEAD sur une référence en en préservant les modifications effectuées (stage ou non) dans le répertoire de travail.</b>
+
+              Si on ne veut pas conserver les modifications, rajouter <code>--hard</code>. Cependant les fichiers non suivis ne seront pas supprimés.
+              Voir <a href="#git_clean">#GIT CLEAN</a>
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="restore">
+        <thead>
+          <tr>
+            <th colspan="2">RESTORE</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git restore &lt;fichier(s)&gt;</code></td>
+            <td>
+              <pre>
+              <b>Restaurer le contenu d'un ou plusieurs fichier à l'état dans lequel ils sont sur HEAD.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git restore --source &lt;ref&gt; &lt;fichier(s)&gt;</code></td>
+            <td>
+              <pre>
+              <b>Restaurer le contenu d'un ou plusieurs fichier dans le répertoire de travail en fonction de la référence spécifiée.</b>
+
+              Ne modifie pas l'historique des commits.
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git restore --staged &lt;fichier(s)&gt;</code></td>
+            <td>
+              <pre>
+              <b>Retirer un ou plusieurs fichier stage.</b>
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="revert">
+        <thead>
+          <tr>
+            <th colspan="2">REVERT</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git revert &lt;ref&gt;</code></td>
+            <td>
+              <pre>
+              <b>Effectuer un nouveau commit qui ne contiendra pas les modifications induites par le commit référencé, sans supprimer ce dernier de l'historique.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git revert &lt;commit-b&gt; &lt;commit-a&gt;</code></td>
+            <td>
+              <pre>
+              <b>Même procédure mais va répéter l'opération sur tous les autres commits ciblés. Pour chaque commits un nouveau sera fait.</b>
+
+              Pour ne pas commit les modifications, ajouter <code>--no-commit</code>
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="stash">
+        <thead>
+          <tr>
+            <th colspan="2">STASH</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git stash</code></td>
+            <td>
+              <pre>
+              <b>Retirer les modifications effectuées sur les fichiers suivis (stage ou pas) et les ajoute au stash.</b>
+
+              Pour y ajouter également les fichiers non suivis, ajouter <code>-u</code>.
+              Pour ajouter un nom à la sauvegarde, rajouter <code>-m "&lt;nom&gt;"</code>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git stash list</code></td>
+            <td>
+              <pre>
+              <b>Voir la liste des sauvegardes faites dans le stash avec leur id.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git stash pop</code></td>
+            <td>
+              <pre>
+              <b>Appliquer le contenu de la dernière sauvegarde présente dans le stash sur notre répertoire de travail.</b>
+
+              Pour appliquer une autre sauvegarde que la dernière, indiquer son id.
+
+              La sauvegarde sera ensuite supprimée du stash.
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git stash apply</code></td>
+            <td>
+              <pre>
+              <b>Même chose que <code>pop</code> sauf que la sauvegarde sera conservée dans le stash.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git stash drop &lt;id&gt;</code></td>
+            <td>
+              <pre>
+              <b>Supprimer la sauvegarde avec l'id pointée du stash.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git stash clear</code></td>
+            <td>
+              <pre>
+              <b>Supprimer toutes les sauvegardes présentes dans le stash.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git stash show &lt;id&gt;</code></td>
+            <td>
+              <pre>
+              <b>Liste les fichiers modifés dans une sauvegarde.</b>
+
+              Pour afficher un diff, rajouter <code>-p</code>. Si on ne renseigne pas de numéro, la dernière sauvegarde sera choisie.
+            </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="switch">
+        <thead>
+          <tr>
+            <th colspan="2">SWITCH</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git switch &lt;branche&gt;</code></td>
+            <td>
+              <pre>
+              <b>Changer de branche.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git switch -c &lt;branche&gt;</code></td>
+            <td>
+              <pre>
+              <b>	Créer une branche et basculer sur celle-ci.</b>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git switch -</code></td>
+            <td>
+              <pre>
+            <b>Revenir sur la branche précédente.</b>
+          </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="tag">
+        <thead>
+          <tr>
+            <th colspan="2">TAG</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><code>git tag</code></td>
+            <td>
+              <pre>
+                <b>Lister les tags.</b>
+                </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag -l "&lt;pattern&gt;"</code></td>
+            <td>
+              <pre>
+                <b>Lister les tags selon un pattern donné.</b>
+
+                Exemple: <code>git tag -l "16*"</code> Va récupérer tous les tags commençants par 16.
+                
+                Plus d'infos sur les patterns: <a href="https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm">tldp.org</a> 
+              </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag &lt;tag&gt;</code></td>
+            <td>
+              <pre>
+                <b>Créer un tag léger référençant HEAD.</b>
+
+                Un tag léger représente un tag comportant seulement un nom.
+                </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag -a &lt;tag&gt;</code></td>
+            <td>
+              <pre>
+                <b>Créer un tag annoté référençant HEAD.</b>
+
+                Un tag annoté contiendra en plus du nom un message, la date de création et les informations de l'auteur.
+                Ces informations seront visible via un <code>git show &lt;tag&gt;</code>.
+
+                Une fois la commande rentrée, une nouvelle fenêtre s'ouvrira pour nous inviter à saisir un message. 
+                
+                Si on veut directement saisir le message sans passer par cette étape, ajouter <code>-m "&lt;message&gt;"</code>
+                </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag &lt;tag&gt; &lt;ref&gt;</code></td>
+            <td>
+              <pre>
+                <b>Créer un tag sur la référence spécifiée.</b>
+
+                Reprends le même principe que les commandes au dessus, mais pour une autre référence que HEAD.
+
+                On peut toujours rajouter des options.
+                
+                Exemple: <code>git tag -a v1.0.0 552c380 -m "first major release"</code> 
+                <img src="./public/screenshot_tag.png" alt="screenshot d'un git log sur vscode qui montre un tag assigné au commit 552c380"
+                </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag -f &lt;tag&gt;</code></td>
+            <td>
+              <pre>
+                <b>Remplacer un tag existant.</b>
+
+                Si on veut également référencer un autre commit, préciser <code>&lt;ref&gt;</code>
+              </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git tag -d &lt;tag&gt;</code></td>
+            <td>
+              <pre>
+                <b>Supprimer un tag.</b>
+              </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">
+              <h2 id="others">AUTRES</h2>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr id="git_clean">
+            <td><code>git clean -f -d</code></td>
+            <td>
+              <pre>
+                <b>Nettoyer les fichiers et dossiers non suivis. </b>
+
+                Par défaut si on ne passe aucun argument, la commande refusera de s'éxécuter.
+
+                Pour lister les fichiers qui seront supprimés sans passer à l'action, remplacer <code>-f</code> par <code>-n</code>
+              </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="infos">
+      <h2>PLUS</h2>
+      <article>
+        <h3>FAST FORWARD MERGE</h3>
+        <div class="graph" id="fast_forward_graph"></div>
+      </article>
+
+      <article>
+        <h3>MERGE COMMIT</h3>
+        <div class="graph" id="merge_commit_graph"></div>
+      </article>
+
+      <article>
+        <h3>REBASE</h3>
+        <div class="graph" id="rebase_graph"></div>
+      </article>
+
+      <article>
+        <h3>UTILISER ~ ET ^ pour pointer un commit</h3>
+        <div class="text" id="navigate_HEAD">
+          <img src="./public/schema_ancestors.png" alt="graphique représentant un historique de commits">
+        </div>
+      </article>
+
+      <article class="text" id="link_branchs">
+        <h3>LIAISON BRANCHE LOCALE/DISTANTE</h3>
+        <pre>
+          Si on vient de cloner ou fetch un repo distant, les branches distantes seront répertoriées en faisant <code>git branch -r</code> mais aucune branche locale seront associées à celles-ci.
+          Pour éviter de créer une branche nous-même et rentrer commande pour faire la liaison local -> distant, on peut faire un <code>git switch &lt;nom-branche-distante&gt;</code>  ce qui aura pour effet de créer une branche locale ayant le meme nom que celle distante et en même temps établir la liaison. Fonctionne aussi avec <code>git checkout -b</code>.
+        </pre>
+      </article>
+
+      <article class="text" id="forced_pushs">
+        <h3>GÉRER LES PUSHS FORCÉS</h3>
+        <pre>
+          Lors d'une tentative de push, si la branche distante n'est pas en mesure de faire un fast-forward pour rattraper notre commit, on aura un message d'erreur. Dans une majorité des cas ça sera car un ou plusieurs commits ont été effectués sur celle-ci et qu'on ne les possède pas en local. Il suffira donc de faire un <code>git pull</code>, qui aura pour effet de télécharger les mises à jour, et d'effectuer un merge (ou un rebase si on rajoute <code>--rebase</code>). Ensuite nous pourrons push.
+
+          Certaines situations peuvent nécessiter de forcer un push. Si on décide de rebase des commits déjà push, ça va en créer de nouveaux et supprimer les anciens de notre branche locale, mais pas de la branche distante. Pour pallier à ça, on peut forcer le push avec <code>-f</code> ou <code>--force</code>. Cela aura pour effet d'écraser les commits présents sur la branche distante par ceux en local. Si on est seul à travailler sur notre branche et qu'on est sûr que personne d'autre va interagir dessus ça peut être une solution.  
+
+          Dans le cas où plusieurs personnes travailleraient sur cette branche, utiliser <code>--force</code> serait risqué car on pourrait écraser des commits effectués par des collègues en pensant que la seule raison du refus de push est le rebase qu'on a effectué.
+          
+          Une solution plus douce existe : <code>--force-with-lease</code>. Cette commande va dans un premier temps comparer la référence du dernier commit effectué sur la branche du dépôt distant, et la comparer avec la référence de la branche suivie à distance en locale. Si par exemple la branche feature distante a pour dernier commit af43d00, et qu'en local, notre origin/feature pointe sur un hash différent, cela voudrait dire que la branche distante à été mise à jour depuis la dernière fois qu'on l'a fetch. Le push avec <code>--force-with-lease</code> ne sera pas effectué et on sera invité à faire un pull pour récupérer les dernières mises à jour avant de d'essayer à nouveau. Un simple <code>--force</code> aurait permis de pusher et aurait écrasé le commit af43d00 ainsi que tout ceux n'ayant pas été fetch.
+          
+          Cette technique comporte aussi une faille dans le cas où la personne aurait effectué le fetch avant un <code>--force-with-lease</code>. Dans ce cas git va récupérer les références de la branche distante et on pourra quand même écraser le travail de notre collègue.
+        </pre>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js" type="module"></script>
+</body>
+
+</html>
