@@ -119,13 +119,15 @@
           </tr>
 
           <tr>
-            <td><code>git branch -d &lt;branch&gt;</code></td>
+            <td><code>git branch -d &lt;branche&gt;</code></td>
             <td>
               <pre>
-              <b> Supprimer la branche locale.</b>
+              <b>Supprimer la branche localement.</b>
 
               Se positionner en dehors de celle-ci avant d'entrer la commande.
               Pour forcer la suppression, remplacer <code>-d</code> par <code>-D</code>. Ca sera nécessaire si la branche n'a pas été mergée.
+
+                Pour supprimer une branche sur un dépôt distant, voir dans la partie <a href="#delete_remote_branch">#PUSH</a>
             </pre>
             </td>
           </tr>
@@ -134,7 +136,7 @@
             <td><code>git branch -m</code></td>
             <td>
               <pre>
-              <b>Renommer la branche sur laquelle on est positionnée.</b>
+              <b>Renommer la branche sur laquelle on est positionné.</b>
             </pre>
             </td>
           </tr>
@@ -159,7 +161,7 @@
           </tr>
 
           <tr>
-            <td><code>git checkout -d &lt;branche&gt;</code></td>
+            <td><code>git checkout -b &lt;branche&gt;</code></td>
             <td>
               <pre>
                 <b>Créer une branche et basculer sur celle-ci.</b>
@@ -206,8 +208,13 @@
               <pre>
               <b>Remplace le précédent commit.</b>
 
-              Le nouveau commit contiendra ce qu’on vient de stage et sera couplé à l’ancien commit. Cela recrée un nouveau commit et retire l’ancien. Si on veut changer le nom du commit, on peut rajouter <code>-m "&lt;message&gt;"</code>. 
-              Au contraire, si on veut juste ajouter des changements en gardant l'ancien message, on peut ajouter <code>--no-edit</code>. Il est possible de changer le nom du commit seulement sans stage quoi que ce soit.
+              Le nouveau commit contiendra ce qu’on vient de stage et sera couplé à l’ancien commit. Cela recréé un nouveau commit et retire l’ancien. 
+              
+              Si on veut changer le nom du commit, ajouter <code>-m "&lt;message&gt;"</code>. 
+
+              Si on veut juste ajouter des changements en gardant l'ancien message de commit, ajouter <code>--no-edit</code>.
+               
+              Il est aussi possible de changer le nom du commit sans avoir stage de modifications.
             </pre>
             </td>
           </tr>
@@ -226,16 +233,7 @@
             <td><code>git diff</code></td>
             <td>
               <pre>
-              <b>Voir les modifications dans les fichiers suivis non stage et HEAD.</b>
-            </pre>
-            </td>
-          </tr>
-
-          <tr>
-            <td><code>git diff HEAD</code></td>
-            <td>
-              <pre>
-              <b>Voir tous les modifications entre les fichiers suivis (qu'ils aient été stage ou non) et HEAD.</b>
+              <b>Voir les modifications sur les fichiers suivis et pas encore non stage entre le répertoire de travail et HEAD.</b>
             </pre>
             </td>
           </tr>
@@ -244,9 +242,18 @@
             <td><code>git diff --staged</code></td>
             <td>
               <pre>
-              <b>Voir les modifications entre les modifications stage et HEAD</b>
+              <b>Voir les modifications entre les fichiers qui ont été stage et HEAD</b>
 
               Autre notation : <code>git diff --cached</code>
+            </pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td><code>git diff HEAD</code></td>
+            <td>
+              <pre>
+              <b>Voir les modifications entre les fichiers suivis (stage et non stage) et HEAD.</b>
             </pre>
             </td>
           </tr>
@@ -255,7 +262,7 @@
             <td><code>git diff &lt;fichier1&gt; &lt;fichier2...&gt;</code></td>
             <td>
               <pre>
-              <b>Voir les modifications dans le ou les fichiers ciblés.</b>
+              <b>Voir les modifications seulement dans les fichiers indiqués.</b>
             </pre>
             </td>
           </tr>
@@ -264,9 +271,10 @@
             <td><code>git diff &lt;branche1&gt; &lt;branche2&gt;</code></td>
             <td>
               <pre>
-              <b>Voir les modifications dans une plage de branches (sur leur dernier commmit respectif).</b>
+              <b>Voir les modifications entre 2 branches (sur leur dernier commmit respectif).</b>
 
               Possibilité de faire la comparaison seulement sur certains fichiers en rajoutant leurs noms à la suite.
+
               Autre notation : <code>git diff &lt;branche1&gt;..&lt;branche2&gt;</code>
             </pre>
             </td>
@@ -278,7 +286,7 @@
               <pre>
               <b>Voir les modifications entre 2 commits reférencés.</b>
 
-              Possibilité de ne référencer qu'un seul commit, ce qui fera une comparaison entre HEAD et celui-ci. 
+              Possibilité de ne référencer qu'un seul commit, ce qui fera une comparaison entre celui-ci et HEAD. 
               Exemple, <code>git diff HEAD~1</code>. 
             </pre>
             </td>
@@ -298,7 +306,7 @@
             <td><code>git log</code></td>
             <td>
               <pre>
-              <b>Afficher un log des commits jusqu'à HEAD.</b>
+              <b>Afficher un log des commits présents dans notre branche.</b>
             </pre>
             </td>
           </tr>
@@ -325,7 +333,7 @@
             <td><code>git log --graph</code></td>
             <td>
               <pre>
-              <b>Afficher une représentation grahique de l'historique des commits.</b>
+              <b>Afficher une représentation graphique de l'historique des commits.</b>
             </pre>
             </td>
           </tr>
@@ -334,7 +342,7 @@
             <td><code>git log --&lt;nombre&gt;</code></td>
             <td>
               <pre>
-              <b>Limite le nombre de commits affichés en fonction du nombre indiqué.</b>
+              <b>Limite le nombre de commits affichés.</b>
             </pre>
             </td>
           </tr>
@@ -345,7 +353,7 @@
               <pre>
               <b>Affiche le log des commits référencés sur l'intervalle donné.</b>
 
-              Préciser le commit le plus ancien des 2 en premier pour avoir un affichage plus cohérent
+              Préciser le commit le plus ancien des 2 en premier pour un affichage cohérent.
             </pre>
             </td>
           </tr>
@@ -376,12 +384,12 @@
               
               Une alternative plus douce est <code>--force-with-lease</code> qui fera le push seulement si la branche distante n'a pas été mise à jour entre temps. 
               
-              Plus d'infos dans cette partie : <a href="#infos">#INFOS</a>
+              Plus d'infos ici : <a href="#forced_pushs">#GÉRER LES PUSHS FORCÉS</a>
             </pre>
             </td>
           </tr>
 
-          <tr>
+          <tr id="delete_remote_branch">
             <td><code>git push &lt;label-repo-distant&gt; -d &lt;branche&gt;</code></td>
             <td>
               <pre>
@@ -406,9 +414,9 @@
             <td><code>git rebase &lt;branche&gt;</code></td>
             <td>
               <pre>
-              <b>Va prendre les commits de notre branche n’étant pas présent dans la branche visée et les ré-appliquer sur celle-ci au plus haut point.</b>
+              <b>Prendre les commits de notre branche n’étant pas présent dans la branche visée et les ré-appliquer par dessus son dernier commit.</b>
 
-              Voir schéma : <a href="#rebase_graph">Schemas REBASE</a>
+              Voir schéma : <a href="#rebase_graph">#Schemas REBASE</a>
             </pre>
             </td>
           </tr>
@@ -417,7 +425,7 @@
             <td><code>git rebase -i &lt;ref&gt;</code></td>
             <td>
               <pre>
-              <b>Va rebaser les commits de notre branche à partir de la référence spécifiée</b>
+              <b>Rebaser les commits de notre branche en commençant à la référence spécifiée</b>
             </pre>
             </td>
           </tr>
@@ -473,11 +481,11 @@
               <pre>
               <b>Lier un dépot distant avec un dépot local.</b>
 
-              La plupart du temps <b>origin</b> sera utilisé comme label. On pourrait utiliser n'importe quel nom à la place mais c'est une convention.
+              La plupart du temps <b>origin</b> sera utilisé comme label. On peut utiliser n'importe quel nom à la place c'est juste une convention. Git nous facilitera la tâche sur certaines commandes si on met <b>origin</b>.
 
-              Quand on clone un repository distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement.
+              Quand on clone un dépôt distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement.
               
-              Si on a pas les droits sur le dépôt distant, la convention est de nommer le label <b>upstream</b>.
+              Si on a pas les droits sur le dépôt distant, la convention est de nommer le label <b>upstream</b> Lors d'un fork par exemple, pour contribuer à des projets externes.
               </pre>
             </td>
           </tr>
@@ -486,7 +494,7 @@
             <td><code>git remote rename &lt;label&gt; &lt;new-label&gt;</code></td>
             <td>
               <pre>
-              <b>Renommer l'ancien label par le nouveau.</b>
+              <b>Renommer le label d'un dépôt distant.</b>
             </pre>
             </td>
           </tr>
@@ -495,7 +503,7 @@
             <td><code>git remote remove &lt;label&gt;</code></td>
             <td>
               <pre>
-              <b>Supprimer le label et l'url associée.</b>
+              <b>Supprimer le label d'un dépôt distant et l'url associée.</b>
             </pre>
             </td>
           </tr>
@@ -517,6 +525,7 @@
               <b>Déplacer HEAD sur une référence en en préservant les modifications effectuées (stage ou non) dans le répertoire de travail.</b>
 
               Si on ne veut pas conserver les modifications, rajouter <code>--hard</code>. Cependant les fichiers non suivis ne seront pas supprimés.
+              Voir <a href="#git_clean">#GIT CLEAN</a>
             </pre>
             </td>
           </tr>
@@ -541,12 +550,12 @@
           </tr>
 
           <tr>
-            <td><code>git restore --source &lt;fichier(s)&gt;</code></td>
+            <td><code>git restore --source &lt;ref&gt; &lt;fichier(s)&gt;</code></td>
             <td>
               <pre>
-              <b>Restaurer le contenu d'un ou plusieurs fichier dans le répertoire de travail en fonction de du commit spécifié.</b>
+              <b>Restaurer le contenu d'un ou plusieurs fichier dans le répertoire de travail en fonction de la référence spécifiée.</b>
 
-              N'altère pas les anciens commits.
+              Ne modifie pas l'historique des commits.
             </pre>
             </td>
           </tr>
@@ -555,7 +564,7 @@
             <td><code>git restore --staged &lt;fichier(s)&gt;</code></td>
             <td>
               <pre>
-              <b>Retirer un ou plusieurs fichier du stage.</b>
+              <b>Retirer un ou plusieurs fichier stage.</b>
             </pre>
             </td>
           </tr>
@@ -571,10 +580,10 @@
 
         <tbody>
           <tr>
-            <td><code>git revert &lt;commit&gt;</code></td>
+            <td><code>git revert &lt;ref&gt;</code></td>
             <td>
               <pre>
-              <b>Effectuer un nouveau commit qui ne contiendra pas les modifications induites par le dernier, sans le supprimer.</b>
+              <b>Effectuer un nouveau commit qui ne contiendra pas les modifications induites par le commit référencé, sans supprimer ce dernier de l'historique.</b>
             </pre>
             </td>
           </tr>
@@ -583,9 +592,9 @@
             <td><code>git revert &lt;commit-b&gt; &lt;commit-a&gt;</code></td>
             <td>
               <pre>
-              <b>Même procédure mais va répéter la même opération sur tous les autres commits ciblés. et fera un nouveau commit à chaque fois.</b>
+              <b>Même procédure mais va répéter l'opération sur tous les autres commits ciblés. Pour chaque commits un nouveau sera fait.</b>
 
-              Pour ne pas commit les modifications, rajouter <code>--no-commit</code>
+              Pour ne pas commit les modifications, ajouter <code>--no-commit</code>
             </pre>
             </td>
           </tr>
@@ -604,10 +613,10 @@
             <td><code>git stash</code></td>
             <td>
               <pre>
-              <b>Retirer les modifications effectuées sur les fichiers suivis et les ajoute au stash.</b>
+              <b>Retirer les modifications effectuées sur les fichiers suivis (stage ou pas) et les ajoute au stash.</b>
 
-              Pour ajouter les fichiers non suivis au stash, rajouter <code>-u</code>.
-              Pour rajouter un nom à la sauvegarde, rajouter <code>-m "&lt;nom&gt;"</code>
+              Pour y ajouter également les fichiers non suivis, ajouter <code>-u</code>.
+              Pour ajouter un nom à la sauvegarde, rajouter <code>-m "&lt;nom&gt;"</code>
             </pre>
             </td>
           </tr>
@@ -627,6 +636,8 @@
               <pre>
               <b>Appliquer le contenu de la dernière sauvegarde présente dans le stash sur notre répertoire de travail.</b>
 
+              Pour appliquer une autre sauvegarde que la dernière, indiquer son id.
+
               La sauvegarde sera ensuite supprimée du stash.
             </pre>
             </td>
@@ -636,7 +647,7 @@
             <td><code>git stash apply</code></td>
             <td>
               <pre>
-              <b>Même chose que <code>pop</code> sauf que le la sauvegarde sera conservée dans le stash.</b>
+              <b>Même chose que <code>pop</code> sauf que la sauvegarde sera conservée dans le stash.</b>
             </pre>
             </td>
           </tr>
@@ -646,6 +657,7 @@
             <td>
               <pre>
               <b>Supprimer la sauvegarde avec l'id pointée du stash.</b>
+
             </pre>
             </td>
           </tr>
@@ -663,7 +675,7 @@
             <td><code>git stash show &lt;id&gt;</code></td>
             <td>
               <pre>
-              <b>Affiche les modifications de fichier induites dans une sauvegarde.</b>
+              <b>Liste les fichiers modifés dans une sauvegarde.</b>
 
               Pour afficher un diff, rajouter <code>-p</code>. Si on ne renseigne pas de numéro, la dernière sauvegarde sera choisie.
             </pre>
@@ -759,9 +771,9 @@
                 Un tag annoté contiendra en plus du nom un message, la date de création et les informations de l'auteur.
                 Ces informations seront visible via un <code>git show &lt;tag&gt;</code>.
 
-                Une fois la commande rentré, une nouvelle fenêtre s'ouvrira pour nous inviter à saisir un message. 
+                Une fois la commande rentrée, une nouvelle fenêtre s'ouvrira pour nous inviter à saisir un message. 
                 
-                Si on veut directement saisir le message sans passer par cette étape, faire <code>git tag -a &lt;tag&gt; -m "&lt;message&gt;"</code>
+                Si on veut directement saisir le message sans passer par cette étape, ajouter <code>-m "&lt;message&gt;"</code>
                 </pre>
             </td>
           </tr>
@@ -775,7 +787,8 @@
                 Reprends le même principe que les commandes au dessus, mais pour une autre référence que HEAD.
 
                 On peut toujours rajouter des options.
-                Exemple: <code>git tag -a v2.0.0 099ff3s "second major release"</code> 
+                Exemple: <code>git tag -a v1.0.0 552c380 -m "first major release"</code> 
+                <img src="./public/screenshot_tag.png" alt="screenshot d'un git log sur vscode qui montre un tag assigné au commit 552c380"
                 </pre>
             </td>
           </tr>
@@ -812,7 +825,7 @@
         </thead>
 
         <tbody>
-          <tr>
+          <tr id="git_clean">
             <td><code>git clean -f -d</code></td>
             <td>
               <pre>
@@ -855,8 +868,8 @@
       <article class="text" id="link_branchs">
         <h3>LIAISON BRANCHE LOCALE/DISTANTE</h3>
         <pre>
-          Si on vient de cloner ou fetch un repo distant, les branches distantes seront répertoriées en faisant <code>git branch -r</code> mais aucune branche locale correspondante seront liées à celles-ci.
-          Pour éviter de créer une branche nous-même et rentrer une nouvelle commande pour faire la liaison local->distant, on peut simplement effectuer un <code>git switch &lt;nom-branche-distante&gt;</code>  ce qui aura pour effet de créer une branche locale ayant le meme nom que celle distante et en même temps établir la liaison. Fonctionne aussi avec <code>git checkout -b</code>.
+          Si on vient de cloner ou fetch un repo distant, les branches distantes seront répertoriées en faisant <code>git branch -r</code> mais aucune branche locale seront associées à celles-ci.
+          Pour éviter de créer une branche nous-même et rentrer commande pour faire la liaison local -> distant, on peut faire un <code>git switch &lt;nom-branche-distante&gt;</code>  ce qui aura pour effet de créer une branche locale ayant le meme nom que celle distante et en même temps établir la liaison. Fonctionne aussi avec <code>git checkout -b</code>.
         </pre>
       </article>
 
@@ -869,7 +882,7 @@
 
           Dans le cas où plusieurs personnes travailleraient sur cette branche, utiliser <code>--force</code> serait risqué car on pourrait écraser des commits effectués par des collègues en pensant que la seule raison du refus de push est le rebase qu'on a effectué.
           
-          Une solution plus douce existe : <code>--force-with-lease</code>. Cette commande va dans un premier temps comparer la référence du dernier commit sur le repository distant, et la comparer avec la référence de la branche suivie à distance en locale. Pour illustrer, si par exemple la branche feature distante a pour dernier commit af43d00, et qu'en local, notre origin/feature pointe sur un hash différent, cela voudrait dire que la branche distante à été mise à jour depuis la dernière fois qu'on l'a fetch. Le push avec <code>--force-with-lease</code> ne sera pas effectué et on sera invité à faire un pull pour récupérer les dernières mises à jour avant de re-essayer. Un simple <code>--force</code> aurait permis de pusher et aurait écrasé le commit af43d00 ainsi que tout ceux qui n'ont pas été fetch.
+          Une solution plus douce existe : <code>--force-with-lease</code>. Cette commande va dans un premier temps comparer la référence du dernier commit effectué sur la branche du dépôt distant, et la comparer avec la référence de la branche suivie à distance en locale. Si par exemple la branche feature distante a pour dernier commit af43d00, et qu'en local, notre origin/feature pointe sur un hash différent, cela voudrait dire que la branche distante à été mise à jour depuis la dernière fois qu'on l'a fetch. Le push avec <code>--force-with-lease</code> ne sera pas effectué et on sera invité à faire un pull pour récupérer les dernières mises à jour avant de d'essayer à nouveau. Un simple <code>--force</code> aurait permis de pusher et aurait écrasé le commit af43d00 ainsi que tout ceux n'ayant pas été fetch.
           
           Cette technique comporte aussi une faille dans le cas où la personne aurait effectué le fetch avant un <code>--force-with-lease</code>. Dans ce cas git va récupérer les références de la branche distante et on pourra quand même écraser le travail de notre collègue.
         </pre>
