@@ -167,10 +167,7 @@
               </pre>
             </td>
           </tr>
-        </tbody>
 
-
-        <tbody>
           <tr>
             <td><code>git checkout &lt;ref&gt;</code></td>
             <td>
@@ -179,7 +176,7 @@
               </pre>
             </td>
           </tr>
-        <tbody>
+        </tbody>
       </table>
 
       <table id="commit">
@@ -416,7 +413,7 @@
               <pre>
               <b>Prendre les commits de notre branche n’étant pas présent dans la branche visée et les ré-appliquer par dessus son dernier commit.</b>
 
-              Voir schéma : <a href="#rebase_graph">#Schemas REBASE</a>
+              Voir schémas : <a href="#rebase_graph">#Schémas REBASE</a>
             </pre>
             </td>
           </tr>
@@ -446,7 +443,7 @@
               <pre>
               <b>Afficher l'historique des changements de références pour HEAD.</b>
                 
-              Pour afficher autre chose que l'historique sur HEAD, rajouter <code> &lt;pointeur&gt@{numéro}</code>
+              Pour afficher autre chose que l'historique sur HEAD, rajouter <code> &lt;pointeur&gt;</code>
               
               Exemple:  <code>git reflog main</code> va nous montrer tous les changements de référence pour la branche main.
               <img src="./public/screenshot_reflog.png" alt="yes">
@@ -468,9 +465,9 @@
             <td><code>git remote</code></td>
             <td>
               <pre>
-              <b>Voir les labels des dépots distants liés à notre dépot local.</b>
+              <b>Voir le label des dépots distants liés à notre dépot local.</b>
 
-              Pour aussi voir les url, rajouter <code>-v</code>.
+              Pour voir les url, rajouter <code>-v</code>.
             </pre>
             </td>
           </tr>
@@ -491,7 +488,7 @@
           </tr>
 
           <tr>
-            <td><code>git remote rename &lt;label&gt; &lt;new-label&gt;</code></td>
+            <td><code>git remote rename &lt;label&gt; &lt;nouveau-label&gt;</code></td>
             <td>
               <pre>
               <b>Renommer le label d'un dépôt distant.</b>
@@ -503,7 +500,7 @@
             <td><code>git remote remove &lt;label&gt;</code></td>
             <td>
               <pre>
-              <b>Supprimer le label d'un dépôt distant et l'url associée.</b>
+              <b>Supprimer une liaison avec un dépôt distant.</b>
             </pre>
             </td>
           </tr>
@@ -583,7 +580,7 @@
             <td><code>git revert &lt;ref&gt;</code></td>
             <td>
               <pre>
-              <b>Effectuer un nouveau commit qui ne contiendra pas les modifications induites par le commit référencé, sans supprimer ce dernier de l'historique.</b>
+              <b>Effectuer un nouveau commit qui ne contiendra pas les modifications induites par le commit référencé, sans supprimer ce dernier.</b>
             </pre>
             </td>
           </tr>
@@ -592,7 +589,7 @@
             <td><code>git revert &lt;commit-b&gt; &lt;commit-a&gt;</code></td>
             <td>
               <pre>
-              <b>Même procédure mais va répéter l'opération sur tous les autres commits ciblés. Pour chaque commits un nouveau sera fait.</b>
+              <b>Même procédure mais va répéter l'opération sur tous les autres commits ciblés. Pour chaque commit parcouru, un nouveau sera fait.</b>
 
               Pour ne pas commit les modifications, ajouter <code>--no-commit</code>
             </pre>
@@ -829,7 +826,7 @@
             <td><code>git clean -f -d</code></td>
             <td>
               <pre>
-                <b>Nettoyer les fichiers et dossiers non suivis. </b>
+                <b>Supprimer les fichiers et dossiers non suivis. </b>
 
                 Par défaut si on ne passe aucun argument, la commande refusera de s'éxécuter.
 
@@ -844,7 +841,7 @@
     <section id="infos">
       <h2>PLUS</h2>
       <article>
-        <h3>FAST FORWARD MERGE</h3>
+        <h3>MERGE FAST FORWARD</h3>
         <div class="graph" id="fast_forward_graph"></div>
       </article>
 
@@ -868,23 +865,22 @@
       <article class="text" id="link_branchs">
         <h3>LIAISON BRANCHE LOCALE/DISTANTE</h3>
         <pre>
-          Si on vient de cloner ou fetch un repo distant, les branches distantes seront répertoriées en faisant <code>git branch -r</code> mais aucune branche locale seront associées à celles-ci.
-          Pour éviter de créer une branche nous-même et rentrer commande pour faire la liaison local -> distant, on peut faire un <code>git switch &lt;nom-branche-distante&gt;</code>  ce qui aura pour effet de créer une branche locale ayant le meme nom que celle distante et en même temps établir la liaison. Fonctionne aussi avec <code>git checkout -b</code>.
+          Pour créer une branche locale et en même temps établir le suivi avec la branche distante ayant le même nom, faire un <code>git switch &lt;nom-branche-distante&gt;</code>. Fonctionne aussi avec <code>git checkout -b</code>.
         </pre>
       </article>
 
       <article class="text" id="forced_pushs">
         <h3>GÉRER LES PUSHS FORCÉS</h3>
         <pre>
-          Lors d'une tentative de push, si la branche distante n'est pas en mesure de faire un fast-forward pour rattraper notre commit, on aura un message d'erreur. Dans une majorité des cas ça sera car un ou plusieurs commits ont été effectués sur celle-ci et qu'on ne les possède pas en local. Il suffira donc de faire un <code>git pull</code>, qui aura pour effet de télécharger les mises à jour, et d'effectuer un merge (ou un rebase si on rajoute <code>--rebase</code>). Ensuite nous pourrons push.
+          Lors d'une tentative de push, si la branche distante n'est pas en mesure de faire un fast-forward pour rattraper notre commit, le push échouera. Dans une majorité des cas ça sera car un ou plusieurs commits ont été effectués sur celle-ci et qu'on ne les possède pas en local. Il suffira donc de faire un <code>git pull</code>, qui aura pour effet de télécharger les mises à jour, et d'effectuer un merge (ou un rebase si on rajoute <code>--rebase</code>). Ensuite nous pourrons push.
 
-          Certaines situations peuvent nécessiter de forcer un push. Si on décide de rebase des commits déjà push, ça va en créer de nouveaux et supprimer les anciens de notre branche locale, mais pas de la branche distante. Pour pallier à ça, on peut forcer le push avec <code>-f</code> ou <code>--force</code>. Cela aura pour effet d'écraser les commits présents sur la branche distante par ceux en local. Si on est seul à travailler sur notre branche et qu'on est sûr que personne d'autre va interagir dessus ça peut être une solution.  
+          Certaines situations peuvent nécessiter de forcer un push. Si on décide de rebase des commits déjà présents sur un dépôt distant, ça va en créer de nouveaux, supprimer les anciens de notre branche locale, mais pas de la branche distante. Pour pallier à ça, on peut forcer le push avec <code>-f</code> ou <code>--force</code>. Cela aura pour effet d'écraser les commits présents sur la branche distante par ceux en local. Si on est seul à travailler sur notre branche et qu'on est sûr que personne d'autre va interagir dessus ça peut être une solution.  
 
           Dans le cas où plusieurs personnes travailleraient sur cette branche, utiliser <code>--force</code> serait risqué car on pourrait écraser des commits effectués par des collègues en pensant que la seule raison du refus de push est le rebase qu'on a effectué.
           
-          Une solution plus douce existe : <code>--force-with-lease</code>. Cette commande va dans un premier temps comparer la référence du dernier commit effectué sur la branche du dépôt distant, et la comparer avec la référence de la branche suivie à distance en locale. Si par exemple la branche feature distante a pour dernier commit af43d00, et qu'en local, notre origin/feature pointe sur un hash différent, cela voudrait dire que la branche distante à été mise à jour depuis la dernière fois qu'on l'a fetch. Le push avec <code>--force-with-lease</code> ne sera pas effectué et on sera invité à faire un pull pour récupérer les dernières mises à jour avant de d'essayer à nouveau. Un simple <code>--force</code> aurait permis de pusher et aurait écrasé le commit af43d00 ainsi que tout ceux n'ayant pas été fetch.
+          Une solution plus douce existe : <code>--force-with-lease</code>. Cette commande va dans un premier temps comparer la référence du dernier commit effectué sur la branche du dépôt distant, et la comparer avec la dernière référence de la branche distante que l'on possède. Si par exemple la branche distante feature a pour dernier commit af43d00, et qu'en local, notre origin/feature pointe sur un commit différent, cela voudrait dire que la branche distante à été mise à jour entre temps. Le push avec <code>--force-with-lease</code> ne sera pas effectué et on sera invité à faire un pull pour récupérer les dernières mises à jour avant de d'essayer à nouveau. Un <code>--force</code> aurait permis de push et aurait écrasé le commit af43d00 ainsi que tout ceux n'ayant pas été fetch.
           
-          Cette technique comporte aussi une faille dans le cas où la personne aurait effectué le fetch avant un <code>--force-with-lease</code>. Dans ce cas git va récupérer les références de la branche distante et on pourra quand même écraser le travail de notre collègue.
+          Cette technique comporte aussi une faille dans le cas où la personne aurait fetch la branche distante avant de push avec <code>--force-with-lease</code>. Dans ce cas git ne verra pas de différences et on pourra quand même écraser le travail de notre collègue.
         </pre>
       </article>
     </section>
