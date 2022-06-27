@@ -812,7 +812,7 @@
         </tbody>
       </table>
 
-      <table>
+      <table id="others">
         <thead>
           <tr>
             <th colspan="2">AUTRES</th>
@@ -870,7 +870,7 @@
       <article class="text" id="forced_pushs">
         <h3>GÉRER LES PUSHS FORCÉS</h3>
         <pre>
-          Lors d'une tentative de push, si la branche distante n'est pas en mesure de faire un fast-forward pour rattraper notre commit, le push échouera. Dans une majorité des cas ça sera car un ou plusieurs commits ont été effectués sur celle-ci et qu'on ne les possède pas en local. Il suffira donc de faire un <code>git pull</code>, qui aura pour effet de télécharger les mises à jour, et d'effectuer un merge (ou un rebase si on rajoute <code>--rebase</code>). Ensuite nous pourrons push.
+          Lors d'une tentative de push, si la branche distante n'est pas en mesure de faire un fast-forward pour rattraper notre commit, le push échouera. Dans la majorité des cas, ça sera car un ou plusieurs commits ont été effectués sur celle-ci et qu'on ne les possède pas en local. Il suffira donc de faire un <code>git pull</code>, qui aura pour effet de télécharger les mises à jour, et d'effectuer un merge (ou un rebase si on rajoute <code>--rebase</code>). Ensuite nous pourrons push.
 
           Certaines situations peuvent nécessiter de forcer un push. Si on décide de rebase des commits déjà présents sur un dépôt distant, ça va en créer de nouveaux, supprimer les anciens de notre branche locale, mais pas de la branche distante. Pour pallier à ça, on peut forcer le push avec <code>-f</code> ou <code>--force</code>. Cela aura pour effet d'écraser les commits présents sur la branche distante par ceux en local. Si on est seul à travailler sur notre branche et qu'on est sûr que personne d'autre va interagir dessus ça peut être une solution.  
 
