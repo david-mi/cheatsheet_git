@@ -392,7 +392,7 @@
             <td><code>git push &lt;label-dist&gt; -d &lt;branche&gt;</code></td>
             <td>
               <pre>
-                <b>Supprimer la branche sur un dépot distant.</b>
+                <b>Supprimer la branche du dépot distant.</b>
 
                 <code>-d</code> peut aussi être noté <code>--delete</code>.
               </pre>
@@ -411,6 +411,21 @@
             </td>
           </tr>
 
+          <tr>
+            <td><code>git push &lt;label-dist&gt; -d &lt;tag&gt;</code></td>
+            <td>
+              <pre>
+                <b>Supprimer le tag du dépot distant.</b>
+
+                <code>-d</code> peut aussi être noté <code>--delete</code>.
+
+                Si le nom du tag est exactement celui d'une branche existante, on peut spécifier <code>:refs/tags/&lt;tag&gt;</code> à la place de <code>&lt;tag&gt;</code>. Cela fera directement référence au nom du tag pointé dans le dossier <b>.git</b>.
+
+                Exemple : <code>git push origin -d :refs/tags/release</code>
+              </pre>
+            </td>
+          </tr>
+
           <tr id="follow-tags">
             <td><code>git push --follow-tags</code></td>
             <td>
@@ -421,7 +436,7 @@
                
                 Si on a une branche locale avec des commits non push et disposant de tags, ils ne seront pas envoyés sur le dépôt distant.
 
-                Il est possible de configurer git pour que <code>git push</code> inclue systématiquement l'argumment <code>--follow-tags</code> avec la commande :
+                Il est possible de configurer git pour que <code>git push</code> inclue systématiquement l'argument <code>--follow-tags</code> avec la commande :
 
                 <code>git config --global push.followTags true</code>
               </pre>
