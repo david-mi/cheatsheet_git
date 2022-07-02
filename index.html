@@ -382,6 +382,8 @@
               Une alternative plus douce est <code>--force-with-lease</code> qui fera le push seulement si la branche distante n'a pas été mise à jour entre temps. 
               
               Plus d'infos ici : <a href="#forced_pushs">#GÉRER LES PUSHS FORCÉS</a>
+
+              Pour lier les <b>tags</b> aux pushs de commits, voir ici : <a href="#follow-tags">#FOLLOW-TAGS</a>
             </pre>
             </td>
           </tr>
@@ -393,6 +395,35 @@
                 <b>Supprimer la branche sur un dépot distant.</b>
 
                 <code>-d</code> peut aussi être noté <code>--delete</code>.
+              </pre>
+            </td>
+          </tr>
+
+          <tr id="add-remote-tag">
+            <td><code>git push &lt;label-dist&gt; &lt;tag&gt;</code></td>
+            <td>
+              <pre>
+                <b>Envoyer le tag spécifié sur le dépôt distant.</b>
+
+                Lors d'un push de commit classique, les tags ne sont pas envoyés sur le dépôt distant.
+                Si on veut envoyer tous les tags, remplacer <code>&lt;tag&gt;</code> par <code>--tags</code>.
+              </pre>
+            </td>
+          </tr>
+
+          <tr id="follow-tags">
+            <td><code>git push --follow-tags</code></td>
+            <td>
+              <pre>
+                <b>Envoyer les commits de la branche locale vers la branche distante ainsi que les tags <b>annotés</b> atteignables par les commits pushés</b>
+
+                Cette commande, en plus de faire 2 choses à la fois permet de faire un push safe des tags.
+               
+                Si on a une branche locale avec des commits non push et disposant de tags, ils ne seront pas envoyés sur le dépôt distant.
+
+                Il est possible de configurer git pour que <code>git push</code> inclue systématiquement l'argumment <code>--follow-tags</code> avec la commande :
+
+                <code>git config --global push.followTags true</code>
               </pre>
             </td>
           </tr>
@@ -754,6 +785,8 @@
                 <b>Créer un tag léger référençant HEAD.</b>
 
                 Un tag léger représente un tag comportant seulement un nom.
+
+                Pour tout ce qui concerne le push des tags sur un dépôt distant, voir ici : <a href="#add-remote-tag">#PUSH DES TAGS</a>
                 </pre>
             </td>
           </tr>
