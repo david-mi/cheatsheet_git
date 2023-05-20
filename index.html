@@ -910,6 +910,17 @@
         </div>
       </article>
 
+      <article class="text">
+        <h3>Supprimer le(s) fichier(s) et dossier(s) du dépôt distant en les conservant localement.</h3>
+        <pre>
+          Parfois on push sur un dépôt distant sans le vouloir des fichiers qui ne devraient pas l'être. On en a besoin en local mais on ne veut pas qu'ils soient présents sur un dépôt distant.
+
+          1: <code>git rm -r --cached &lt;élément(s)&gt;</code>
+          2: <code>git commit -m "&lt;message&gt;"</code>
+          3: <code>git push origin</code>
+        </pre>
+      </article>
+
       <article class="text" id="link_branchs">
         <h3>LIAISON BRANCHE LOCALE/DISTANTE</h3>
         <pre>
