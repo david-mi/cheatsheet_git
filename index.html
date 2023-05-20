@@ -392,7 +392,7 @@
             <td><code>git push &lt;label-dist&gt; -d &lt;branche&gt;</code></td>
             <td>
               <pre>
-                <b>Supprimer la branche du dépot distant.</b>
+                <b>Supprimer la branche du dépôt distant.</b>
 
                 <code>-d</code> peut aussi être noté <code>--delete</code>.
               </pre>
@@ -411,11 +411,11 @@
             </td>
           </tr>
 
-          <tr>
+          <tr id="delete-remote-tag">
             <td><code>git push &lt;label-dist&gt; -d &lt;tag&gt;</code></td>
             <td>
               <pre>
-                <b>Supprimer le tag du dépot distant.</b>
+                <b>Supprimer le tag du dépôt distant.</b>
 
                 <code>-d</code> peut aussi être noté <code>--delete</code>.
 
@@ -511,7 +511,7 @@
             <td><code>git remote</code></td>
             <td>
               <pre>
-              <b>Voir le label des dépots distants liés à notre dépot local.</b>
+              <b>Voir le label des dépôts distants liés à notre dépôt local.</b>
 
               Pour voir les url, rajouter <code>-v</code>.
             </pre>
@@ -522,11 +522,11 @@
             <td><code>git remote add &lt;label&gt;&lt;repo-url&gt;</code></td>
             <td>
               <pre>
-              <b>Lier un dépot distant avec un dépot local.</b>
+              <b>Lier un dépôt distant avec un dépôt local.</b>
 
               La plupart du temps <b>origin</b> sera utilisé comme label. On peut utiliser n'importe quel nom à la place c'est juste une convention. Git nous facilitera la tâche sur certaines commandes si on met <b>origin</b>.
 
-              Quand on clone un dépôt distant, le label associé à l'url du dépot cloné sera nommé origin automatiquement.
+              Quand on clone un dépôt distant, le label associé à l'url du dépôt cloné sera nommé origin automatiquement.
               
               Si on a pas les droits sur le dépôt distant, la convention est de nommer le label <b>upstream</b> Lors d'un fork par exemple, pour contribuer à des projets externes.
               </pre>
@@ -854,6 +854,8 @@
             <td>
               <pre>
                 <b>Supprimer un tag.</b>
+                
+                Pour tout ce qui concerne la suppression d'un tag d'un dépôt distant, voir ici : <a href="#delete-remote-tag">#SUPPRIMER LE TAG DU DEPOT DISTANT</a>
               </pre>
             </td>
           </tr>
